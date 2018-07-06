@@ -1,0 +1,5 @@
+exynos7-espresso.o: arch/arm64/boot/dts/exynos/exynos7-espresso.dts \
+ arch/arm64/boot/dts/exynos/exynos7.dtsi \
+ arch/arm64/boot/dts/include/dt-bindings/clock/exynos7-clk.h \
+ arch/arm64/boot/dts/exynos/exynos7-pinctrl.dtsi \
+ arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h

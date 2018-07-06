@@ -1,0 +1,1 @@
+arch/arm64/boot/dts/socionext/uniphier-ph1-ld10-ref.dtb: arch/arm64/boot/dts/socionext/.uniphier-ph1-ld10-ref.dtb.dts.tmp arch/arm64/boot/dts/socionext/uniphier-ph1-ld10.dtsi arch/arm64/boot/dts/socionext/uniphier-pinctrl.dtsi arch/arm64/boot/dts/socionext/uniphier-support-card.dtsi

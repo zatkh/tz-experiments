@@ -1,0 +1,4 @@
+berlin4ct-stb.o: arch/arm64/boot/dts/marvell/berlin4ct-stb.dts \
+ arch/arm64/boot/dts/marvell/berlin4ct.dtsi \
+ arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h \
+ arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h

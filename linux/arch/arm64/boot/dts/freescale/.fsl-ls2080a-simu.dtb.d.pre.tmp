@@ -1,0 +1,1 @@
+fsl-ls2080a-simu.o: arch/arm64/boot/dts/freescale/fsl-ls2080a-simu.dts
