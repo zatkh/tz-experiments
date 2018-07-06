@@ -1,5 +1,7 @@
 out-br/
 toolchains/
+qemu/
+
 *.a
 *.o*.a
 *.o
