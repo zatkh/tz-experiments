@@ -1,1 +1,0 @@
-fsl-ls2080a-qds.o: arch/arm64/boot/dts/freescale/fsl-ls2080a-qds.dts

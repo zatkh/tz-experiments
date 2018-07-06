@@ -1,1 +1,0 @@
-arch/arm64/boot/dts/freescale/fsl-ls2080a-simu.dtb: arch/arm64/boot/dts/freescale/.fsl-ls2080a-simu.dtb.dts.tmp arch/arm64/boot/dts/freescale/fsl-ls2080a.dtsi

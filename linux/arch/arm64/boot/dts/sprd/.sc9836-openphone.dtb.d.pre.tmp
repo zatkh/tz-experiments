@@ -1,5 +1,0 @@
-sc9836-openphone.o: arch/arm64/boot/dts/sprd/sc9836-openphone.dts \
- arch/arm64/boot/dts/sprd/sc9836.dtsi \
- arch/arm64/boot/dts/sprd/sharkl64.dtsi \
- arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h \
- arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h

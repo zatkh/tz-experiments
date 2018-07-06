@@ -1,4 +1,0 @@
-juno-r1.o: arch/arm64/boot/dts/arm/juno-r1.dts \
- arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h \
- arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
- arch/arm64/boot/dts/arm/juno-base.dtsi

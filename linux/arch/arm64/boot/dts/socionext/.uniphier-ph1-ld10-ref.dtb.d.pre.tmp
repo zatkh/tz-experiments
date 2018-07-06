@@ -1,2 +1,0 @@
-uniphier-ph1-ld10-ref.o: \
- arch/arm64/boot/dts/socionext/uniphier-ph1-ld10-ref.dts

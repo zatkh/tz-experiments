@@ -1,1 +1,0 @@
-arch/arm64/boot/dts/arm/juno.dtb: arch/arm64/boot/dts/arm/.juno.dtb.dts.tmp arch/arm64/boot/dts/arm/juno-clocks.dtsi arch/arm64/boot/dts/arm/juno-motherboard.dtsi

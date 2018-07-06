@@ -1,1 +1,0 @@
-apm-merlin.o: arch/arm64/boot/dts/apm/apm-merlin.dts
