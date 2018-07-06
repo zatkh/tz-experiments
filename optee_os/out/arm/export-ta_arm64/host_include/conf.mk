@@ -1,5 +1,5 @@
 # auto-generated TEE configuration file
-# TEE version 4eb1f30-dev
+# TEE version 08fe04a-dev
 ARCH=arm
 PLATFORM=vexpress
 PLATFORM_FLAVOR=qemu_armv8a
