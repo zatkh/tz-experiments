@@ -71,6 +71,7 @@ linux/tar-install/
 !.gitignore
 !.mailmap
 
+
 #
 # Generated include files
 #
@@ -111,5 +112,18 @@ all.config
 
 # Kdevelop4
 *.kdev4
+
+# Ignore build directory
+arm-trusted-firmware/build/
+
+# Ignore build products from tools
+arm-trusted-firmware/tools/**/*.o
+arm-trusted-firmware/tools/fip_create/
+arm-trusted-firmware/tools/fiptool/fiptool
+arm-trusted-firmware/tools/fiptool/fiptool.exe
+arm-trusted-firmware/tools/cert_create/src/*.o
+arm-trusted-firmware/tools/cert_create/src/**/*.o
+arm-trusted-firmware/tools/cert_create/cert_create
+arm-trusted-firmware/tools/cert_create/cert_create.exe
 
 

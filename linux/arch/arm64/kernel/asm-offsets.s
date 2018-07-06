@@ -8,12 +8,12 @@
 // -I include -I ./arch/arm64/include/uapi
 // -I arch/arm64/include/generated/uapi -I ./include/uapi
 // -I include/generated/uapi -imultiarch aarch64-linux-gnu
-// -iprefix /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
-// -isysroot /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
+// -iprefix /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
+// -isysroot /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
 // -D __KERNEL__ -D CONFIG_AS_LSE=1 -D CC_HAVE_ASM_GOTO -D KBUILD_STR(s)=#s
 // -D KBUILD_BASENAME=KBUILD_STR(asm_offsets)
 // -D KBUILD_MODNAME=KBUILD_STR(asm_offsets)
-// -isystem /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
+// -isystem /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
 // -include ./include/linux/kconfig.h
 // -MD arch/arm64/kernel/.asm-offsets.s.d arch/arm64/kernel/asm-offsets.c
 // -mlittle-endian -mgeneral-regs-only -mpc-relative-literal-loads
@@ -556,7 +556,7 @@ main:
 	.file 4 "./include/uapi/asm-generic/posix_types.h"
 	.file 5 "include/linux/types.h"
 	.file 6 "include/linux/capability.h"
-	.file 7 "/home/zt233/Documents/git/optee/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stdarg.h"
+	.file 7 "/home/zt233/Documents/test-tz/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stdarg.h"
 	.file 8 "<built-in>"
 	.file 9 "include/linux/init.h"
 	.file 10 "./arch/arm64/include/asm/cachetype.h"
@@ -19902,6 +19902,8 @@ main:
 	.string	"blocking_notifier_head"
 .LASF1249:
 	.string	"kref"
+.LASF1137:
+	.string	"dl_yielded"
 .LASF528:
 	.string	"__smp_cross_call"
 .LASF453:
@@ -22120,8 +22122,6 @@ main:
 	.string	"vmid"
 .LASF1128:
 	.string	"dl_runtime"
-.LASF1941:
-	.string	"/home/zt233/Documents/git/optee/linux"
 .LASF1486:
 	.string	"dev_kobj"
 .LASF994:
@@ -22449,8 +22449,8 @@ main:
 	.string	"xen_start_info"
 .LASF525:
 	.string	"cputime_t"
-.LASF1137:
-	.string	"dl_yielded"
+.LASF1941:
+	.string	"/home/zt233/Documents/test-tz/linux"
 .LASF1440:
 	.string	"alloc"
 .LASF1295:

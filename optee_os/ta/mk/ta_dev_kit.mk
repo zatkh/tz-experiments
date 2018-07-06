@@ -58,7 +58,7 @@ libdeps += $(ta-dev-kit-dir)/lib/libmpa.a
 libdeps += $(ta-dev-kit-dir)/lib/libutee.a
 
 ifeq ($(CFG_ARM64_ta_arm64),y)
-libnames += openlibm solo5 bmfs zlib png nolibc#, merged to utils and utee
+libnames += openlibm bmfs zlib png nolibc#, merged to utils and utee
 libdeps += $(ta-dev-kit-dir)/lib/libopenlibm.a
 libdeps += $(ta-dev-kit-dir)/lib/libbmfs.a
 libdeps += $(ta-dev-kit-dir)/lib/libzlib.a

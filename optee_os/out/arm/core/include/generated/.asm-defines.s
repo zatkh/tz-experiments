@@ -10,13 +10,13 @@
 // -I core/lib/libfdt/include -I core/arch/arm/plat-vexpress/.
 // -I core/include -I out/arm/core/include -I core/arch/arm/include
 // -I lib/libutee/include -imultiarch aarch64-linux-gnu
-// -iprefix /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
-// -isysroot /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
+// -iprefix /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
+// -isysroot /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
 // -MD out/arm/core/include/generated/.asm-defines.d
 // -MF out/arm/core/include/generated/.asm-defines.s.d
 // -MT out/arm/core/include/generated/.asm-defines.s -D __KERNEL__
 // -D ARM64=1 -D __LP64__=1 -D TRACE_LEVEL=3
-// -isystem /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
+// -isystem /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
 // -include out/arm/include/generated/conf.h
 // core/arch/arm/kernel/asm-defines.c -mstrict-align -mgeneral-regs-only
 // -march=armv8-a -mlittle-endian -mabi=lp64
@@ -259,7 +259,7 @@ __defines:
 	.text
 .Letext0:
 	.file 2 "lib/libutils/isoc/include/stdint.h"
-	.file 3 "/home/zt233/Documents/git/optee/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stddef.h"
+	.file 3 "/home/zt233/Documents/test-tz/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stddef.h"
 	.file 4 "lib/libutils/ext/include/types_ext.h"
 	.file 5 "core/arch/arm/include/kernel/wait_queue.h"
 	.file 6 "core/arch/arm/include/kernel/mutex.h"
@@ -2573,7 +2573,7 @@ __defines:
 	.byte	0x7
 	.4byte	.Ldebug_macro12
 	.byte	0x4
-	.file 27 "/home/zt233/Documents/git/optee/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stdbool.h"
+	.file 27 "/home/zt233/Documents/test-tz/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stdbool.h"
 	.byte	0x3
 	.uleb128 0xb
 	.uleb128 0x1b
@@ -9745,8 +9745,6 @@ __defines:
 	.string	"TEE_PANIC_ID_TEE_STARTPROPERTYENUMERATOR 0x0000020C"
 .LASF1257:
 	.string	"TEE_PANIC_ID_TEE_RESETPERSISTENTOBJECTENUMERATOR 0x00000A04"
-.LASF1714:
-	.string	"/home/zt233/Documents/git/optee/optee_os"
 .LASF989:
 	.string	"MM_PGT_CACHE_H "
 .LASF1449:
@@ -10242,8 +10240,8 @@ __defines:
 	.string	"__ARM_PCS_AAPCS64 1"
 .LASF1192:
 	.string	"TEE_ATTR_ECC_CURVE 0xF0000441"
-.LASF642:
-	.string	"TCR_EL1_IPS_SHIFT 32"
+.LASF1236:
+	.string	"TEE_PANIC_ID_TEE_GETOBJECTVALUEATTRIBUTE 0x00000704"
 .LASF420:
 	.string	"INT_MIN (-INT_MAX - 1)"
 .LASF1365:
@@ -10524,6 +10522,8 @@ __defines:
 	.string	"__UINT_FAST8_MAX__ 0xff"
 .LASF866:
 	.string	"OPTEE_MSG_RPC_CMD_GET_TIME 3"
+.LASF1714:
+	.string	"/home/zt233/Documents/test-tz/optee_os"
 .LASF704:
 	.string	"CPACR_EL1_FPEN_EL1 0x1"
 .LASF550:
@@ -10614,6 +10614,8 @@ __defines:
 	.string	"TEE_ALG_RSAES_PKCS1_OAEP_MGF1_SHA1 0x60210230"
 .LASF339:
 	.string	"CFG_TA_FLOAT_SUPPORT 1"
+.LASF642:
+	.string	"TCR_EL1_IPS_SHIFT 32"
 .LASF148:
 	.string	"__DBL_MIN_EXP__ (-1021)"
 .LASF722:
@@ -10920,8 +10922,6 @@ __defines:
 	.string	"USHRT_MAX (SHRT_MAX * 2 + 1)"
 .LASF1340:
 	.string	"UTEE_TYPES_H "
-.LASF1236:
-	.string	"TEE_PANIC_ID_TEE_GETOBJECTVALUEATTRIBUTE 0x00000704"
 .LASF1244:
 	.string	"TEE_PANIC_ID_TEE_INITREFATTRIBUTE 0x00000805"
 .LASF1419:

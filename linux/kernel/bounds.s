@@ -8,12 +8,12 @@
 // -I include -I ./arch/arm64/include/uapi
 // -I arch/arm64/include/generated/uapi -I ./include/uapi
 // -I include/generated/uapi -imultiarch aarch64-linux-gnu
-// -iprefix /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
-// -isysroot /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
+// -iprefix /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
+// -isysroot /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
 // -D __KERNEL__ -D CONFIG_AS_LSE=1 -D CC_HAVE_ASM_GOTO -D KBUILD_STR(s)=#s
 // -D KBUILD_BASENAME=KBUILD_STR(bounds)
 // -D KBUILD_MODNAME=KBUILD_STR(bounds)
-// -isystem /home/zt233/Documents/git/optee/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
+// -isystem /home/zt233/Documents/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
 // -include ./include/linux/kconfig.h -MD kernel/.bounds.s.d
 // kernel/bounds.c -mlittle-endian -mgeneral-regs-only
 // -mpc-relative-literal-loads -march=armv8-a -mabi=lp64
@@ -1036,8 +1036,6 @@ foo:
 	.string	"saved_command_line"
 .LASF61:
 	.string	"system_states"
-.LASF101:
-	.string	"/home/zt233/Documents/git/optee/linux"
 .LASF3:
 	.string	"short unsigned int"
 .LASF85:
@@ -1076,8 +1074,8 @@ foo:
 	.string	"PG_active"
 .LASF77:
 	.string	"PG_head"
-.LASF100:
-	.string	"kernel/bounds.c"
+.LASF101:
+	.string	"/home/zt233/Documents/test-tz/linux"
 .LASF92:
 	.string	"zone_type"
 .LASF25:
@@ -1086,6 +1084,8 @@ foo:
 	.string	"late_time_init"
 .LASF71:
 	.string	"PG_owner_priv_1"
+.LASF100:
+	.string	"kernel/bounds.c"
 .LASF47:
 	.string	"panic_on_warn"
 .LASF99:
