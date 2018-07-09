@@ -1,6 +1,7 @@
 out-br/
 toolchains/
 qemu/
+edk2/
 
 *.a
 *.o*.a
