@@ -6,12 +6,17 @@
  */
 
 #include <bmfs/time.h>
-
 #include <time.h>
+#include <tee_api.h>
+
 
 int bmfs_get_current_time(bmfs_uint64 *time_ptr) {
 
-	*time_ptr = time(NULL);
+	TEE_Time _time;
+	TEE_GetSystemTime(&_time);
+	*time_ptr = _time.seconds;
+
 
 	return 0;
 }
+	

@@ -25,11 +25,16 @@ srcs-y += path.c
 srcs-y += status.c
 srcs-y += table.c
 
-#srcs-y += time.c
+#srcs-y  += filedisk.c
+srcs-y  += ramdisk.c
+srcs-y  += time.c
+srcs-y  += size.c
+srcs-y  += stdhost.c
+srcs-y += time.c
 
 
 
-
+cflags-lib-y += -Wno-unused-parameter
 
 #srcs-y :=
 #cflags-y :=

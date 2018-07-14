@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <inttypes.h>
+#include "errno-base.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4244)
