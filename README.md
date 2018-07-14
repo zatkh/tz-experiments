@@ -11,12 +11,13 @@ or
 
 >> sudo docker build -t test .  
 
+>> xhost + (warning: allowing to open up any X11 window on you machine)  
+
 >> docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix test  
 
 >> cd home/test-tz/build  
->> xhost + (warning: allowing to open up any X11 window on you machine)  
->> make ta-targets=ta_arm64 run -j$(nproc)
 
+>> make ta-targets=ta_arm64 run -j$(nproc)
 
 Tests: 
 
