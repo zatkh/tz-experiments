@@ -23,7 +23,7 @@ FILE *fresult;
 
 static TEEC_Session tfs_sess,tcrypt_sess,tui_sess,tnet_sess,ta_sess;
 static TEEC_Context tfs_ctx,tcrypt_ctx,tui_ctx,tnet_ctx,ta_ctx;
-static TEEC_UUID ta_uuid= TA_MINOR_TEST_UUID;
+static TEEC_UUID ta_uuid= HELLO_ENCLAVE;
 static TEEC_UUID tfs_uuid=TFS_UUID;
 static TEEC_UUID tnet_uuid=TA_NET_UUID;
 static TEEC_UUID tcrypt_uuid=TCRYPTO_UUID;
@@ -158,7 +158,7 @@ void init_latency(void)
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	TEEC_UUID uuid = TA_MINOR_TEST_UUID;
+	TEEC_UUID uuid = HELLO_ENCLAVE;
 	uint32_t err_origin,obj;
 	uint32_t storage_id=storage_ids[0];
 	unsigned long diff = 0;
@@ -198,7 +198,7 @@ void init_latency_seperatly(void)
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	TEEC_UUID uuid = TA_MINOR_TEST_UUID;
+	TEEC_UUID uuid = HELLO_ENCLAVE;
 	uint32_t err_origin,obj;
 	uint32_t storage_id=storage_ids[0];
 	unsigned long diff = 0;
@@ -517,7 +517,7 @@ void pta_round_bench(void)
     TEEC_Result res;
 	TEEC_Context ctx;
 	TEEC_Session sess;
-	TEEC_UUID uuid = SNAPE_DRIVER_UUID;
+	TEEC_UUID uuid = TEST_ENCLAVE_UUID;
 	unsigned long diff = 0;
 	unsigned long avg = 0;
     struct timespec init_second, current_time;
@@ -597,7 +597,7 @@ void ecall_console_bench(void)
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	TEEC_UUID uuid = SNAPE_DRIVER_UUID;
+	TEEC_UUID uuid = TEST_ENCLAVE_UUID;
 	uint32_t err_origin;
 	unsigned long diff = 0;
 	unsigned long avg = 0;
@@ -661,7 +661,7 @@ int ecall_open_bench(const char *name)
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	TEEC_UUID uuid = SNAPE_DRIVER_UUID;
+	TEEC_UUID uuid = TEST_ENCLAVE_UUID;
 	uint32_t err_origin;
 	unsigned long diff = 0;
 	unsigned long avg = 0;
@@ -723,7 +723,7 @@ int ecall_write_bench(int fd, void * buf, size_t len)
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	TEEC_UUID uuid = SNAPE_DRIVER_UUID;
+	TEEC_UUID uuid = TEST_ENCLAVE_UUID;
 	uint32_t err_origin;
 	unsigned long diff = 0;
 	unsigned long avg = 0;
@@ -786,7 +786,7 @@ int ecall_read_bench(int fd, void * buf, size_t len)
 	TEEC_Context ctx;
 	TEEC_Session sess;
 	TEEC_Operation op;
-	TEEC_UUID uuid = SNAPE_DRIVER_UUID;
+	TEEC_UUID uuid = TEST_ENCLAVE_UUID;
 	uint32_t err_origin;
 	unsigned long diff = 0;
 	unsigned long avg = 0;
@@ -823,6 +823,7 @@ int ecall_read_bench(int fd, void * buf, size_t len)
 	if (res != TEEC_SUCCESS)
 		errx(1, "[ecall_read_bench]TEEC_Opensession failed with code 0x%x origin 0x%x",
 			res, err_origin);
+
 
 
 	res = TEEC_InvokeCommand(&sess, O_READ, &op,&err_origin);
@@ -911,10 +912,7 @@ void tfs_syscalls_latency(void)
         diff = diff_time(current_timep, init_secondp);
         fprintf(fresult, "[micro-bench] ECALL_CREATE latency :%ld\n", diff);
 
-				
-
-
-
+			
 
 //ECALL_OPEN
 		for(int i=0;i<ITERATION;i++)

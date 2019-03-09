@@ -35,7 +35,7 @@
 /* To get the TA UUID definition */
 #include <main_ta.h>
 
-#define TA_UUID				TA_MINOR_TEST_UUID
+#define TA_UUID				HELLO_ENCLAVE
 
 /*
  * TA properties: multi-instance TA, no specific attribute

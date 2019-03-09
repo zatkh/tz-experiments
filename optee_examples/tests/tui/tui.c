@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 TEE_TASessionHandle snape_sess;
-const TEE_UUID snape_uuid = SNAPE_DRIVER_UUID;
+const TEE_UUID snape_uuid = TEST_ENCLAVE_UUID;
 
 /*
  * Called when the instance of the TA is created. This is the first call in
@@ -144,7 +144,7 @@ TEE_Result TA_InvokeCommandEntryPoint(void __maybe_unused *sess_ctx,
 	(void)&sess_ctx; /* Unused parameter */
 
 	switch (cmd_id) {
-	case TA_HELLO_WORLD_CMD_INC_VALUE:
+	case ECALL_INC_VAL:
 		return inc_value(param_types, params);
 	case ECALL_PUTS:
 		return ecall_puts(param_types, params);

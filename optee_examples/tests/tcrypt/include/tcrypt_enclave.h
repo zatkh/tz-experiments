@@ -20,7 +20,7 @@
 
 
 /* The function IDs implemented in this TA */
-#define TA_HELLO_WORLD_CMD_INC_VALUE		0
+#define ECALL_INC_VAL		0
 
 
 

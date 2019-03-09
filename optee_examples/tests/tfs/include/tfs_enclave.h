@@ -19,7 +19,7 @@
 
 
 
-#define TA_HELLO_WORLD_CMD_INC_VALUE 0
+#define ECALL_INC_VAL 0
 #define ECALL_BMFS_TEST 1
 #define ECALL_CREATE 2
 #define ECALL_OPEN 3

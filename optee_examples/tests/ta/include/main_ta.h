@@ -33,14 +33,14 @@
  * This UUID is generated with uuidgen
  * the ITU-T UUID generator at http://www.itu.int/ITU-T/asn1/uuid.html
  */
-#define TA_MINOR_TEST_UUID \
+#define HELLO_ENCLAVE \
 	{ 0x7089f704, 0x47cf, 0x410c, \
 		{ 0xbc, 0xf5, 0xff, 0xf3, 0xbb, 0x1c, 0x65, 0xfd} }
 
 
 
 /* The function IDs implemented in this TA */
-#define TA_HELLO_WORLD_CMD_INC_VALUE		0
+#define ECALL_INC_VAL		0
 #define TA_BMFS_TEST 2
 #define TA_LIBM_TEST 3
 

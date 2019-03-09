@@ -4,7 +4,7 @@
 #include "ocalls_compat.h"
 
 TEE_TASessionHandle sess;
-const TEE_UUID core_uuid = SNAPE_DRIVER_UUID;
+const TEE_UUID core_uuid = TEST_ENCLAVE_UUID;
 
 TEE_Result snape_driver_open()
 					

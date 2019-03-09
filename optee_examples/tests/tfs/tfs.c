@@ -194,7 +194,7 @@ TEE_Result TA_InvokeCommandEntryPoint(void __maybe_unused *sess_ctx,
 	(void)&sess_ctx; /* Unused parameter */
 
 	switch (cmd_id) {
-	case TA_HELLO_WORLD_CMD_INC_VALUE:
+	case ECALL_INC_VAL:
 		return inc_value(param_types, params);
 	case ECALL_BMFS_TEST:
 		return ecall_fs_test(param_types, params);
