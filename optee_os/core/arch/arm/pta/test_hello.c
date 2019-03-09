@@ -32,7 +32,7 @@ static TEE_Result ocall_test(uint32_t param_types __unused,
 	rpc_params.u.value.b = 13;
 	rpc_params.u.value.c = 14;
 
-	 res=thread_rpc_cmd(TEST_OCALL, 1, &rpc_params);
+	 res=thread_rpc_cmd(OCALL_TEST, 1, &rpc_params);
 
 	
 	IMSG("empty \n" );
@@ -44,7 +44,7 @@ static TEE_Result ocall_test(uint32_t param_types __unused,
 static TEE_Result test_hello(uint32_t param_types __unused,
 			TEE_Param params[TEE_NUM_PARAMS] __unused)
 {
-	IMSG("hey this is a new test PTA \n" );
+	IMSG("hey this is a new test ENCLAVE \n" );
 
 
 	return TEE_SUCCESS;
@@ -91,7 +91,7 @@ static TEE_Result invoke_command(void *pSessionContext __unused,
 	switch (nCommandID) {
 	case ENCLAVE_CONSOLE_TEST:
 		return test_hello(nParamTypes, pParams);
-	case PTA_TEST_OCALL:
+	case ECALL_TEST:
 		return ocall_test(nParamTypes, pParams);	
 	default:
 		break;
@@ -101,7 +101,7 @@ static TEE_Result invoke_command(void *pSessionContext __unused,
 }
 
 
-pseudo_ta_register(.uuid = PTA_THELLO_UUID, .name = ENCLAVE_NAME,
+pseudo_ta_register(.uuid = TEST_ENCLAVE_UUID, .name = ENCLAVE_NAME,
 		   .flags = PTA_DEFAULT_FLAGS | TA_FLAG_SECURE_DATA_PATH |
 			    TA_FLAG_CONCURRENT,
 		   .create_entry_point = create_ta,

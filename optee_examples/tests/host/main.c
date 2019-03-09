@@ -600,11 +600,11 @@ int main(int argc, char *argv[])
 
 	time_start = clock();
 	for(int i=0;i<ITERATION;i++)
-		res = TEEC_InvokeCommand(&sess,PTA_TEST_OCALL_FROM_TA , &op,
+		res = TEEC_InvokeCommand(&sess,ECALL_TEST_FROM_TA , &op,
 				 &err_origin);
 	time_end=clock();
 
-	fprintf(fresult, "PTA_TEST_OCALL_FROM_TA %f , ITERATION :%d\n", ( (double)(time_end - time_start))/CLOCKS_PER_SEC, ITERATION);
+	fprintf(fresult, "ECALL_TEST_FROM_TA %f , ITERATION :%d\n", ( (double)(time_end - time_start))/CLOCKS_PER_SEC, ITERATION);
 	
 ////////////////////////////////////
 	res = TEEC_InvokeCommand(&sess,TA_BMFS_CLEAN , &op,

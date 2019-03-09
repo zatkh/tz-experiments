@@ -17,7 +17,7 @@
 
 
 #define ENCLAVE_NAME "test_enclave.pta" 
-#define ENCLAVE_NAME_MAX 350
+#define ENCLAVE_NAME_MAX 500
 
 //cheking console
 static TEE_Result test_console(uint32_t param_types __unused,
@@ -49,7 +49,7 @@ static TEE_Result ocall_test(uint32_t param_types __unused,
 	memset(&rpc_params, 0, sizeof(rpc_params));
 	rpc_params.attr = OPTEE_MSG_ATTR_TYPE_VALUE_INOUT;
 	rpc_params.u.value.a = params[0].value.a;
-	res=thread_rpc_cmd(TEST_OCALL, 1, &rpc_params);
+	res=thread_rpc_cmd(OCALL_TEST, 1, &rpc_params);
 
 	
 	IMSG("[ocall_test] end \n" );
@@ -92,20 +92,22 @@ static TEE_Result ocall_open(uint32_t param_types __unused,TEE_Param params[TEE_
 	//fd
 	rpc_params[1].attr = OPTEE_MSG_ATTR_TYPE_VALUE_OUTPUT;
 	rpc_params[1].u.value.a=0;
-	
-	
+
+
 	TEE_Result res;
-	IMSG("[ocall_tap_open] before rpc \n");
+	IMSG("[ocall_open] before rpc \n");
 
 	res=thread_rpc_cmd(OCALL_OPEN, 2, &rpc_params);
 	params[1].value.a=rpc_params[1].u.value.a;
-	
-	IMSG("[ocall_tap_open] fd(%d)", params[1].value.a);
+
+	IMSG("[ocall_open] fd(%d)", params[1].value.a);
 	thread_rpc_free_payload(c, mobj);
 	return res;
 
 
 }
+
+// ocall to write syscall in NW
 
 static TEE_Result ocall_write(uint32_t param_types __unused,TEE_Param params[TEE_NUM_PARAMS])
 {
@@ -158,6 +160,7 @@ static TEE_Result ocall_write(uint32_t param_types __unused,TEE_Param params[TEE
 
 }
 
+// ocall to read syscall in NW
 
 static TEE_Result ocall_read(uint32_t param_types __unused,TEE_Param params[TEE_NUM_PARAMS])
 {
@@ -227,6 +230,7 @@ static TEE_Result ocall_read(uint32_t param_types __unused,TEE_Param params[TEE_
 
 }
 
+// ocall to close syscall in NW
 static TEE_Result ocall_close(uint32_t param_types __unused,
 			TEE_Param params[TEE_NUM_PARAMS])
 {
@@ -250,52 +254,7 @@ static TEE_Result ocall_close(uint32_t param_types __unused,
 }
 
 
-
-
-/*
-static TEE_Result gprof_send_rpc(TEE_UUID *uuid, void *buf, size_t len,
-				 uint32_t *id)
-{
-	struct optee_msg_param params[3];
-	struct mobj *mobj;
-	TEE_Result res = TEE_ERROR_GENERIC;
-	uint64_t c = 0;
-	char *va;
-
-	mobj = thread_rpc_alloc_payload(sizeof(*uuid) + len, &c);
-	if (!mobj)
-		return TEE_ERROR_OUT_OF_MEMORY;
-
-	va = mobj_get_va(mobj, 0);
-	if (!va)
-		goto exit;
-
-	memcpy(va, uuid, sizeof(*uuid));
-	memcpy(va + sizeof(*uuid), buf, len);
-
-	memset(params, 0, sizeof(params));
-	params[0].attr = OPTEE_MSG_ATTR_TYPE_VALUE_INOUT;
-	params[0].u.value.a = *id;
-
-	msg_param_init_memparam(params + 1, mobj, 0, sizeof(*uuid), c,
-				MSG_PARAM_MEM_DIR_IN);
-	msg_param_init_memparam(params + 2, mobj, sizeof(*uuid), len, c,
-				MSG_PARAM_MEM_DIR_IN);
-
-	res = thread_rpc_cmd(OPTEE_MSG_RPC_CMD_GPROF, 3, params);
-	if (res != TEE_SUCCESS)
-		goto exit;
-
-	*id = (uint32_t)params[0].u.value.a;
-exit:
-	thread_rpc_free_payload(c, mobj);
-	return res;
-}
-
-
-*/
-
-
+// ocall to open tap device in nw
 static TEE_Result ocall_tap_open(uint32_t param_types __unused,TEE_Param params[TEE_NUM_PARAMS])
 {
 
@@ -349,46 +308,7 @@ static TEE_Result ocall_tap_open(uint32_t param_types __unused,TEE_Param params[
 }
 
 
-int usleep(uint32_t param_types,TEE_Param params[TEE_NUM_PARAMS] )
-{
-	int microsec=params[0].value.a;
-	tee_time_busy_wait((uint32_t )(microsec/1000));
-	return 0;
-}
-
-
-
-static TEE_Result open_session(uint32_t nParamTypes __unused,
-		TEE_Param pParams[TEE_NUM_PARAMS] __unused,
-		void **ppSessionContext __unused)
-{
-	DMSG("open entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
-	return TEE_SUCCESS;
-}
-
-static void close_session(void *pSessionContext __unused)
-{
-	DMSG("close entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
-}
-
-/*
- * Trusted Application Entry Points
- */
-
-static TEE_Result create_ta(void)
-{
-	DMSG("create entry point for pseudo TA \"%s\"", ENCLAVE_NAME);
-	return TEE_SUCCESS;
-}
-
-static void destroy_ta(void)
-{
-	DMSG("destroy entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
-}
-
-
-
-
+// ocall to basic file operations
 static TEE_Result file_ocall(uint32_t param_types __unused,
 			TEE_Param params[TEE_NUM_PARAMS] __unused)
 {
@@ -406,6 +326,49 @@ static TEE_Result file_ocall(uint32_t param_types __unused,
 
 }
 
+int usleep(uint32_t param_types,TEE_Param params[TEE_NUM_PARAMS] )
+{
+	int microsec=params[0].value.a;
+	tee_time_busy_wait((uint32_t )(microsec/1000));
+	return 0;
+}
+
+
+/****************************************************************/
+
+/*
+ * Enclave session open/close
+ */
+
+static TEE_Result open_session(uint32_t nParamTypes __unused,
+		TEE_Param pParams[TEE_NUM_PARAMS] __unused,
+		void **ppSessionContext __unused)
+{
+	DMSG("open entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
+	return TEE_SUCCESS;
+}
+
+static void close_session(void *pSessionContext __unused)
+{
+	DMSG("close entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
+}
+
+/*
+ * Enclave Entry Points
+ */
+
+static TEE_Result create_ta(void)
+{
+	DMSG("create entry point for pseudo TA \"%s\"", ENCLAVE_NAME);
+	return TEE_SUCCESS;
+}
+
+static void destroy_ta(void)
+{
+	DMSG("destroy entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
+}
+
+
 
 static TEE_Result invoke_command(void *pSessionContext __unused,
 				 uint32_t nCommandID, uint32_t nParamTypes,
@@ -414,24 +377,35 @@ static TEE_Result invoke_command(void *pSessionContext __unused,
 	FMSG("command entry point for pseudo-TA \"%s\"", ENCLAVE_NAME);
 
 	switch (nCommandID) {
+		
 	case ENCLAVE_CONSOLE_TEST:
 		return test_console(nParamTypes, pParams);
-	case PTA_TEST_OCALL:
+
+	case ECALL_TEST:
 		return ocall_test(nParamTypes, pParams);
-	case PTA_FILE_OCALL:
-		return file_ocall(nParamTypes, pParams);
+
 	case USLEEP:
 		return usleep(nParamTypes, pParams);
-    case O_CLOSE:
+
+	case O_OPEN:
+		return ocall_open(nParamTypes, pParams);	
+
+  case O_CLOSE:
         return ocall_close (nParamTypes, pParams); 
+
 	case O_READ:
 		return ocall_read(nParamTypes, pParams);
+
 	case O_WRITE:
-		return ocall_write(nParamTypes, pParams);	 
+		return ocall_write(nParamTypes, pParams);
+
 	case O_TAP_OPEN:
 		return ocall_tap_open(nParamTypes, pParams); 
-	case O_OPEN:
-		return ocall_open(nParamTypes, pParams);				
+	
+	case OCALL_FILE:
+			return file_ocall(nParamTypes, pParams);
+
+
 	default:
 		break;
 	}
@@ -440,7 +414,7 @@ static TEE_Result invoke_command(void *pSessionContext __unused,
 }
 
 
-pseudo_ta_register(.uuid = PTA_THELLO_UUID, .name = ENCLAVE_NAME,
+pseudo_ta_register(.uuid = TEST_ENCLAVE_UUID, .name = ENCLAVE_NAME,
 		   .flags = PTA_DEFAULT_FLAGS | TA_FLAG_SECURE_DATA_PATH |
 			    TA_FLAG_CONCURRENT,
 		   .create_entry_point = create_ta,

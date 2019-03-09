@@ -254,7 +254,7 @@
  * End of definitions for messages with .cmd == OPTEE_MSG_RPC_CMD_SOCKET
  */
 
-#define TEST_OCALL 20
+#define OCALL_TEST 20
 
 #define OCALL_READ 21
 

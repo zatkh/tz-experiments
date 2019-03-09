@@ -237,7 +237,7 @@
  */
 
 
-#define TEST_OCALL 20
+#define OCALL_TEST 20
 
 #define OCALL_READ 21
 

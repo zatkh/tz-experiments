@@ -850,7 +850,7 @@ static bool process_one_request(struct thread_arg *arg)
 	case OPTEE_MSG_RPC_CMD_SOCKET:
 		ret = tee_socket_process(num_params, params);
 		break;
-	case TEST_OCALL:
+	case OCALL_TEST:
 		ret= tee_test_ocall(num_params, params);
 		break;
 		

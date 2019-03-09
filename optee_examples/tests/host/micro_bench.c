@@ -478,7 +478,7 @@ void ecall_hello_fle_bench(void)
 
 	for(int i=0;i<ITERATION;i++){
 		clock_gettime(CLOCK_MONOTONIC_RAW, init_secondp);
-   		res = TEEC_InvokeCommand(&ta_sess, PTA_TEST_OCALL_FROM_TA, &op,&err_origin);
+   		res = TEEC_InvokeCommand(&ta_sess, ECALL_TEST_FROM_TA, &op,&err_origin);
 		clock_gettime(CLOCK_MONOTONIC_RAW, current_timep);
 
 		if (res != TEEC_SUCCESS)
@@ -555,7 +555,7 @@ void pta_round_bench(void)
 	
 	for(int i=0;i<ITERATION;i++){
 		clock_gettime(CLOCK_MONOTONIC_RAW, init_secondp);
-   		res = TEEC_InvokeCommand(&sess, PTA_TEST_OCALL, &op,&err_origin);
+   		res = TEEC_InvokeCommand(&sess, ECALL_TEST, &op,&err_origin);
 		clock_gettime(CLOCK_MONOTONIC_RAW, current_timep);
 
 		if (res != TEEC_SUCCESS)
@@ -696,7 +696,7 @@ int ecall_open_bench(const char *name)
 			res, err_origin);
 
 
-	res = TEEC_InvokeCommand(&sess, O_OPEN , &op,&err_origin);
+	res = TEEC_InvokeCommand(&sess,O_OPEN , &op,&err_origin);
 
 
 

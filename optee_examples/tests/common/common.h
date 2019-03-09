@@ -10,9 +10,9 @@
 #define TEEC_OPERATION_INITIALIZER { 0 }
 
 #define ENCLAVE_CONSOLE_TEST 40
-#define PTA_TEST_OCALL 41
+#define ECALL_TEST 41
 #define USLEEP 42
-#define PTA_FILE_OCALL 43
+#define OCALL_FILE 43
 #define O_CLOSE 44
 #define O_READ 45
 #define O_WRITE 46

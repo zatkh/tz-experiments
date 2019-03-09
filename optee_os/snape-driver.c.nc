@@ -25,7 +25,7 @@ static TEE_Result ocall_test(uint32_t param_types __unused,
 	memset(&rpc_params, 0, sizeof(rpc_params));
 	rpc_params.attr = OPTEE_MSG_ATTR_TYPE_VALUE_INOUT;
 	rpc_params.u.value.a = params[0].value.a;
-	 res=thread_rpc_cmd(TEST_OCALL, 1, &rpc_params);
+	 res=thread_rpc_cmd(OCALL_TEST, 1, &rpc_params);
 	IMSG("empty \n" );
 	 return TEE_SUCCESS;
 }
@@ -225,9 +225,9 @@ static TEE_Result invoke_command(void *pSessionContext __unused,
 	switch (nCommandID) {
 	case ENCLAVE_CONSOLE_TEST:
 		return test_hello(nParamTypes, pParams);
-	case PTA_TEST_OCALL:
+	case ECALL_TEST:
 		return ocall_test(nParamTypes, pParams);
-	case PTA_FILE_OCALL:
+	case OCALL_FILE:
 		return file_ocall(nParamTypes, pParams);
 	case USLEEP:
 		return usleep(nParamTypes, pParams);
@@ -246,7 +246,7 @@ static TEE_Result invoke_command(void *pSessionContext __unused,
 	}
 	return TEE_ERROR_NOT_IMPLEMENTED;
 }
-pseudo_ta_register(.uuid = PTA_THELLO_UUID, .name = ENCLAVE_NAME,
+pseudo_ta_register(.uuid = TEST_ENCLAVE_UUID, .name = ENCLAVE_NAME,
 		   .flags = PTA_DEFAULT_FLAGS | TA_FLAG_SECURE_DATA_PATH |
 			    TA_FLAG_CONCURRENT,
 		   .create_entry_point = create_ta,

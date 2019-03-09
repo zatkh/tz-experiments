@@ -52,7 +52,7 @@
 #define TA_SEEK_FILE_TEST 8
 #define TA_EMPTY_TEST 9
 #define TA_BMFS_CLEAN 10
-#define PTA_TEST_OCALL_FROM_TA 11
+#define ECALL_TEST_FROM_TA 11
 #define ECALL_TIME 12
 
 

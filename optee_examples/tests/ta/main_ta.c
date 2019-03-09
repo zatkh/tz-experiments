@@ -203,7 +203,7 @@ static TEE_Result pta_test(uint32_t __unused param_types,
 	uint32_t err_origin;
 	
 //printf("after opening pta session\n");
-	res = TEE_InvokeTACommand(snape_sess, 0, PTA_FILE_OCALL, param_types, params, &err_origin);
+	res = TEE_InvokeTACommand(snape_sess, 0, OCALL_FILE, param_types, params, &err_origin);
 	//printf("after pta test $d\n",err_origin);
 
 
@@ -265,7 +265,7 @@ TEE_Result TA_InvokeCommandEntryPoint(void __maybe_unused *sess_ctx,
 		return inc_value(param_types, params);
 	case TA_EMPTY_TEST:
 		return empty_test(param_types, params);
-	case PTA_TEST_OCALL_FROM_TA:
+	case ECALL_TEST_FROM_TA:
 		return pta_test(param_types, params);
 	case ECALL_TIME:
 		return ecall_time(param_types, params);
