@@ -1,8 +1,6 @@
 #ifndef MICORO_BENCH_H
 #define MICORO_BENCH_H
 
-#include "ukvm_guest.h"
-
 void init_latency(void);
 void init_latency_seperatly(void);
 void tfs_latency(void);

@@ -1,6 +1,6 @@
 project (tests C)
 
-set (SRC host/main.c host/secure_fs_interface.c host/ukvm_cpu_aarch64.c host/ukvm_hv_kvm_aarch64.c host/ukvm_hv_kvm.c host/ukvm_core.c host/ukvm_elf.c host/ukvm_module_blk.c host/ukvm_module_net.c host/micro_bench.c)
+set (SRC host/main.c host/secure_fs_interface.c host/micro_bench.c)
 
 add_executable (${PROJECT_NAME} ${SRC})
 
