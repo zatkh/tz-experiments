@@ -1,0 +1,5 @@
+ns2-svk.o: arch/arm64/boot/dts/broadcom/ns2-svk.dts \
+ arch/arm64/boot/dts/broadcom/ns2.dtsi \
+ arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h \
+ arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h \
+ arch/arm64/boot/dts/include/dt-bindings/clock/bcm-ns2.h

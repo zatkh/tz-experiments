@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "err.h": "c",
+        "ukvm.h": "c",
+        "net_enclave.h": "c",
+        "ocalls_compat.h": "c"
+    }
+}

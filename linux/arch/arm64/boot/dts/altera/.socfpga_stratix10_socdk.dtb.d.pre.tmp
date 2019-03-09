@@ -1,0 +1,2 @@
+socfpga_stratix10_socdk.o: \
+ arch/arm64/boot/dts/altera/socfpga_stratix10_socdk.dts

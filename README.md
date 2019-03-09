@@ -21,5 +21,5 @@ or
 
 Tests: 
 
-In NW terminal after login (type root), run minor_test(or other tests in examples directory)
+In NW terminal after login (type root), run tests(or other tests in examples directory)
 

@@ -31,6 +31,11 @@ struct user_ta_store_handle {
 	uint32_t hash_algo;
 };
 
+
+
+
+
+
 /*
  * Load a TA via RPC with UUID defined by input param @uuid. The virtual
  * address of the raw TA binary is received in out parameter @ta.
@@ -54,9 +59,12 @@ static TEE_Result rpc_load(const TEE_UUID *uuid, struct shdr **ta,
 	params[1].u.tmem.size = 0;
 	params[1].u.tmem.shm_ref = 0;
 
+
+
 	res = thread_rpc_cmd(OPTEE_MSG_RPC_CMD_LOAD_TA, 2, params);
 	if (res != TEE_SUCCESS)
 		return res;
+
 
 	*mobj = thread_rpc_alloc_payload(params[1].u.tmem.size, &cta);
 	if (!*mobj)
@@ -246,6 +254,9 @@ static TEE_Result ta_read(struct user_ta_store_handle *h, void *data,
 
 static void ta_close(struct user_ta_store_handle *h)
 {
+	
+
+
 	if (!h)
 		return;
 	thread_rpc_free_payload(h->cookie, h->mobj);

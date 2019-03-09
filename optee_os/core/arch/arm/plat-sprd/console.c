@@ -45,3 +45,10 @@ void console_putc(int ch)
 	cons->ops->putc(cons, ch & 0xff);
 }
 
+int console_getc(void)
+{
+	struct serial_chip *cons = &console_data.chip;
+
+	return cons->ops->getchar(cons);
+}
+

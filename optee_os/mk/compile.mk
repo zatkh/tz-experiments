@@ -89,6 +89,10 @@ comp-flags-$2 = -DASM=1 $$(filter-out $$(AFLAGS_REMOVE) $$(aflags-remove) \
 			   $$(AFLAGS) $$(comp-aflags$$(comp-sm-$2)) \
 			   $$(aflags$$(comp-sm-$2)) $$(aflags-$2))
 
+else ifeq ($$(filter %.f,$1),$1)
+comp-q-$2 := gfortran 
+comp-flags-$2 = 
+
 else
 $$(error "Don't know what to do with $1")
 endif

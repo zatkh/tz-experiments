@@ -10,10 +10,9 @@ srcs-$(CFG_WITH_STATS) += stats.c
 srcs-$(CFG_TA_GPROF_SUPPORT) += gprof.c
 srcs-$(CFG_TEE_BENCHMARK) += benchmark.c
 srcs-$(CFG_SDP_PTA) += sdp_pta.c
-srcs-$(CFG_TA_PTA_TEST) += test_hello.c
-
+#srcs-$(CFG_TA_PTA_TEST) += test_hello.c
+srcs-$(CFG_TA_PTA_TEST) += enclave-test-driver.c
 #srcs-y += test_bmfs.c
-#cppflags-test_bmfs.c-y += -Ilib/libbmfs/include
 
 
 

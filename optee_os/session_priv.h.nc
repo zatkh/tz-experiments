@@ -1,0 +1,11 @@
+#ifndef TEE_SE_SESSION_PRIV_H
+#define TEE_SE_SESSION_PRIV_H
+TAILQ_HEAD(channel_list, tee_se_channel);
+struct tee_se_session {
+	struct tee_se_reader_proxy *reader_proxy;
+	struct channel_list channels;
+	TAILQ_ENTRY(tee_se_session) link;
+};
+struct tee_se_session *tee_se_session_alloc(struct tee_se_reader_proxy *proxy);
+void tee_se_session_free(struct tee_se_session *s);
+#endif

@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "pico_udp.h": "c",
+        "pico_config.h": "c",
+        "pico_eth.h": "c",
+        "pico_ipv4.h": "c",
+        "pico_addressing.h": "c",
+        "pico_protocol.h": "c",
+        "pico_tree.h": "c",
+        "pico_socket.h": "c"
+    }
+}

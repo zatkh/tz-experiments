@@ -52,18 +52,31 @@
 #include <tee_supp_fs.h>
 #include <tee_supplicant.h>
 #include <unistd.h>
+#include <net/if.h>
+#include <signal.h>
+#include <linux/if_tun.h>
+#include <sys/poll.h>
 
 #include "optee_msg_supplicant.h"
 
+#define __unused	__attribute__((unused))
 #ifndef __aligned
 #define __aligned(x) __attribute__((__aligned__(x)))
 #endif
 #include <linux/tee.h>
 
 #define RPC_NUM_PARAMS	5
+#define TUN_MTU 2048
+
 
 #define RPC_BUF_SIZE	(sizeof(struct tee_iocl_supp_send_arg) + \
 			 RPC_NUM_PARAMS * sizeof(struct tee_ioctl_param))
+
+static bool chk_pt(struct tee_ioctl_param *param, uint32_t type)
+{
+	return (param->attr & TEE_IOCTL_PARAM_ATTR_TYPE_MASK) == type;
+}
+
 
 union tee_rpc_invoke {
 	uint64_t buf[(RPC_BUF_SIZE - 1) / sizeof(uint64_t) + 1];
@@ -558,6 +571,235 @@ static bool spawn_thread(struct thread_arg *arg)
 	return true;
 }
 
+
+static uint32_t tee_test_ocall(size_t num_params __unused,
+				    struct tee_ioctl_param *params)
+
+{
+
+params[0].u.value.a ++;
+printf("[ecall_test] %d\n",(int)params[0].u.value.a);
+printf("from enclave: ecall_test successfull \n");
+
+return TEEC_SUCCESS;
+}
+
+static uint32_t hello_file_time_bench(size_t num_params __unused,
+				    struct tee_ioctl_param *params __unused)
+{
+
+   int fd;
+    char buf1[12] = "hello world";
+    char buf2[12];
+ 
+    // assume foobar.txt is already created
+    fd = open("ocall.txt", O_RDWR | O_CREAT);             
+    write(fd, buf1, strlen(buf1));  
+	lseek(fd, 0, SEEK_SET); 
+	read(fd, buf2, sizeof(buf2));       
+ 	printf("[ocall_file_bench] %s\n",buf2);
+    close(fd);
+ 
+    return TEEC_SUCCESS;
+	
+}
+
+static uint32_t ocall_open(size_t num_params,
+				    struct tee_ioctl_param *params)
+
+{
+
+char *name;
+int fd;
+
+	if (num_params != 2 ||
+	    (params[0].attr & TEE_IOCTL_PARAM_ATTR_TYPE_MASK) !=
+			TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT ||
+	    (params[1].attr & TEE_IOCTL_PARAM_ATTR_TYPE_MASK) !=
+			TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT)
+		return TEEC_ERROR_BAD_PARAMETERS;
+
+
+	name=tee_supp_param_to_va(params + 0);
+
+    if((fd = open(name, O_RDWR | O_CREAT)) < 0) {
+        return -1;
+    }
+	printf("[ocall_open] name: %s , fd %d\n", name,fd);
+
+	params[1].u.value.a = fd;
+
+
+return TEEC_SUCCESS;
+}
+
+static TEEC_Result ocall_write(size_t num_params,struct tee_ioctl_param *params)
+{
+
+    int fd;
+	void *buf;
+	size_t bufsize ,len;
+
+	if (num_params != 3 ||
+	    !chk_pt(params + 0, TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT) ||
+	    !chk_pt(params + 1, TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT) ||
+		!chk_pt(params + 2, TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT))
+
+		
+		return TEEC_ERROR_BAD_PARAMETERS;
+	fd=params[0].u.value.a ;
+	buf = tee_supp_param_to_va(params + 1);
+	bufsize=params[1].u.memref.size;
+
+	printf("[ocall_write] write this buf: %s , to fd %d, len: %ld\n",(char*) buf,fd,bufsize);
+
+	len=write(fd, buf, bufsize);
+
+	printf("[ocall_write] written len %ld\n", len);
+
+
+	params[2].u.value.a =len;
+
+    return TEEC_SUCCESS;
+}
+
+static TEEC_Result ocall_read(size_t num_params,struct tee_ioctl_param *params)
+{
+	int fd;
+	void *buf;
+	size_t blen;
+
+	if (num_params != 3 ||
+	    !chk_pt(params + 0, TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT) ||
+	    !chk_pt(params + 1, TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT) ||
+	    !chk_pt(params + 2, TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT))
+		return TEEC_ERROR_BAD_PARAMETERS;
+
+	fd= params[0].u.value.a;
+	blen = params[2].u.value.a;
+	buf = tee_supp_param_to_va(params + 1);
+	size_t ret_len = params[1].u.memref.size;
+
+	ret_len = read(fd, buf, blen);
+	printf("buf in supp is: %s and retlen %ld, blen: %ld\n", (char*)buf, ret_len, blen);
+	params[1].u.memref.size = blen;
+
+	return TEEC_SUCCESS;
+
+}
+
+
+static TEEC_Result ocall_tap_open(size_t num_params,struct tee_ioctl_param *params)
+{
+	char *name;
+    struct ifreq ifr;
+    int tap_fd;
+
+	if (num_params != 3 ||
+	    (params[0].attr & TEE_IOCTL_PARAM_ATTR_TYPE_MASK) !=
+			TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT ||
+	    (params[1].attr & TEE_IOCTL_PARAM_ATTR_TYPE_MASK) !=
+			TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT ||
+	    (params[2].attr & TEE_IOCTL_PARAM_ATTR_TYPE_MASK) !=
+			TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT)
+		return TEEC_ERROR_BAD_PARAMETERS;
+
+
+	name=tee_supp_param_to_va(params + 1);
+    if((tap_fd = open("/dev/net/tun", O_RDWR)) < 0) {
+        return -1;
+    }
+	printf("[supplicant_ocall_tap_open] name: %s \n", name);
+    memset(&ifr, 0, sizeof(ifr));
+    ifr.ifr_flags = IFF_TAP | IFF_NO_PI;
+    strncpy(ifr.ifr_name, name, IFNAMSIZ);
+    if(ioctl(tap_fd, TUNSETIFF, &ifr) < 0) {
+        return TEEC_ERROR_GENERIC;
+    }
+
+	params[2].u.value.a = tap_fd;
+
+	printf("[supplicant_ocall_tap_open]: fd(%d) \n", tap_fd);
+    return TEEC_SUCCESS;
+}
+
+static TEEC_Result ocall_tap_get_mac(size_t num_params,struct tee_ioctl_param *params)
+{
+    int sck;
+    struct ifreq eth;
+	char *name;
+	uint8_t *mac;
+
+	if (num_params != 2 ||
+	    !chk_pt(params + 0, TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT) ||
+	    !chk_pt(params + 1, TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_OUTPUT))
+		return TEEC_ERROR_BAD_PARAMETERS;
+
+	name = tee_supp_param_to_va(params + 0);
+	mac = tee_supp_param_to_va(params + 1);
+
+
+
+    sck = socket(AF_INET, SOCK_DGRAM, 0);
+    if(sck < 0) {
+        return TEEC_ERROR_GENERIC;
+    }
+
+    memset(&eth, 0, sizeof(struct ifreq));
+    strcpy(eth.ifr_name, name);
+    /* call the IOCTL */
+    if (ioctl(sck, SIOCGIFHWADDR, &eth) < 0) {
+        perror("ioctl(SIOCGIFHWADDR)");
+        return TEEC_ERROR_GENERIC;
+    }
+
+    memcpy (mac, &eth.ifr_hwaddr.sa_data, 6);
+    close(sck);
+    return TEEC_SUCCESS;
+
+}
+
+static TEEC_Result ocall_tap_close(size_t num_params,struct tee_ioctl_param *params)
+{
+
+    int tap_fd;
+
+	if (num_params != 1 ||
+	    !chk_pt(params + 0, TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT))
+		return TEEC_ERROR_BAD_PARAMETERS;
+
+	tap_fd=params[0].u.value.a ;
+	close(tap_fd);
+
+    return TEEC_SUCCESS;
+}
+
+
+
+
+
+
+static TEEC_Result ocall_poll(size_t num_params,struct tee_ioctl_param *params)
+
+{
+	
+	if (num_params != 2 ||
+	    !chk_pt(params + 0, TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_INPUT) ||
+	    !chk_pt(params + 1, TEE_IOCTL_PARAM_ATTR_TYPE_VALUE_OUTPUT))
+		return TEEC_ERROR_BAD_PARAMETERS;
+
+	int tap_fd=params[0].u.value.a ;
+	int events= params[0].u.value.b ;
+    struct pollfd pfd;
+    pfd.fd = tap_fd;
+    pfd.events = events;
+
+	params[1].u.value.a= poll(&pfd, 1, 0) ;
+  
+    return TEEC_SUCCESS;
+}
+
+
 static bool process_one_request(struct thread_arg *arg)
 {
 	union tee_rpc_invoke request;
@@ -608,6 +850,38 @@ static bool process_one_request(struct thread_arg *arg)
 	case OPTEE_MSG_RPC_CMD_SOCKET:
 		ret = tee_socket_process(num_params, params);
 		break;
+	case TEST_OCALL:
+		ret= tee_test_ocall(num_params, params);
+		break;
+		
+	case OCALL_READ:
+		ret= ocall_read(num_params, params);	
+		break;
+	case OCALL_WRITE:
+		ret= ocall_write(num_params, params);	
+		break;		
+	case OCALL_CLOSE:
+		ret= ocall_tap_close(num_params, params);	
+		break;
+	case OCALL_POLL:
+		ret= ocall_poll(num_params, params);	
+		break;	
+	case OCALL_TAP_OPEN:
+		ret= ocall_tap_open(num_params, params);	
+		break;
+	case OCALL_OPEN:
+		ret= ocall_open(num_params, params);	
+		break;			
+	case OCALL_GET_MAC:
+		ret = ocall_tap_get_mac	(num_params, params);
+		break;
+
+	case OCALL_FILE_BENCH:
+		ret = hello_file_time_bench	(num_params, params);
+		break;
+
+
+	
 	default:
 		EMSG("Cmd [0x%" PRIx32 "] not supported", func);
 		/* Not supported. */

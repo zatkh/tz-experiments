@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "type_traits": "c",
+        "if_tun.h": "c",
+        "typeinfo": "c"
+    }
+}

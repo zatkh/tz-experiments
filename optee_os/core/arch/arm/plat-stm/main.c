@@ -92,6 +92,19 @@ void console_putc(int ch)
 	}
 }
 
+int console_getc(void)
+{
+	if (ns_resources_ready()) {
+		struct serial_chip *cons = &console_data.chip;
+
+		return cons->ops->getchar(cons);
+	}
+
+	return -1;
+}
+
+
+
 void console_flush(void)
 {
 	if (ns_resources_ready()) {

@@ -1,0 +1,10 @@
+NW file open time 0.000863 , ITERATION :10
+NW file write time 0.000414 , ITERATION :10
+NW file seek time 0.000658 , ITERATION :10
+NW file read time 0.000408 , ITERATION :10
+SW file open time 0.008068 , ITERATION :10
+SW file write time 0.008887 , ITERATION :10
+SW file seek time 0.007725 , ITERATION :10
+SW file read time 0.008510 , ITERATION :10
+SW epty time 0.008025 , ITERATION :10
+~

@@ -1,6 +1,6 @@
 
-#ifndef __TEST_HELLO_H
-#define __TEST_HELLO_H
+#ifndef __ENCLAVE_TEST_H
+#define __ENCLAVE_TEST_H
 
 /*
  * Interface to the gprof pseudo-TA, which is used by libutee to control TA
@@ -11,6 +11,8 @@
 			 0x9e, 0x0f, 0x87, 0xc1, 0xb7, 0x6d, 0x36, 0x9b } }
 
 
-#define PTA_HELLO 4
 
-#endif /* __TEST_HELLO_H*/
+
+#define PTA_TEST_OCALL 11
+#define ENCLAVE_CONSOLE_TEST 12
+#endif /* __ENCLAVE_TEST_H*/

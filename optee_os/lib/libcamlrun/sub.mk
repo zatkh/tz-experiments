@@ -1,0 +1,53 @@
+
+srcs-y += interp.c
+srcs-y += misc.c
+srcs-y += stacks.c
+srcs-y += fix_code.c
+srcs-y += startup_aux.c
+srcs-y += startup.c
+srcs-y += freelist.c
+srcs-y += major_gc.c
+srcs-y += minor_gc.c
+srcs-y += memory.c
+srcs-y += alloc.c
+srcs-y += roots.c
+srcs-y += globroots.c
+srcs-y += fail.c
+srcs-y += signals.c
+srcs-y += signals_byt.c
+srcs-y += printexc.c
+srcs-y += backtrace_prim.c
+srcs-y += backtrace.c
+srcs-y += compare.c
+srcs-y += ints.c
+srcs-y += floats.c
+srcs-y += str.c
+srcs-y += array.c
+srcs-y += io.c
+srcs-y += extern.c
+srcs-y += intern.c
+srcs-y += hash.c
+srcs-y += sys.c
+srcs-y += meta.c
+srcs-y += parsing.c
+srcs-y += gc_ctrl.c
+srcs-y += terminfo.c
+srcs-y += md5.c
+srcs-y += obj.c
+srcs-y += lexing.c
+srcs-y += callback.c
+srcs-y += debugger.c
+srcs-y += weak.c
+srcs-y += compact.c
+srcs-y += finalise.c
+srcs-y += custom.c
+srcs-y += dynlink.c
+srcs-y += spacetime.c
+srcs-y += afl.c
+srcs-y += unix.c
+srcs-y += bigarray.c
+srcs-y += main.c
+
+
+cflags-lib-y =-nostdlib -u call_user_start_cpu0 -Wl,--gc-sections -Wl,-static -Wl,--start-group -lgcc -lstdc++ -lgcov -Wl,--end-group -Wl,-EL -Os -fno-strict-aliasing -fwrapv -Wall
+cppflags-lib-y =-Os -D_FILE_OFFSET_BITS=64 -DCAML_NAME_SPACE 

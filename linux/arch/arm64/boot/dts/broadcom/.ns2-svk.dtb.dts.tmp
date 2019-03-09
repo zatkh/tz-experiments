@@ -1,0 +1,339 @@
+# 1 "arch/arm64/boot/dts/broadcom/ns2-svk.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "arch/arm64/boot/dts/broadcom/ns2-svk.dts"
+# 33 "arch/arm64/boot/dts/broadcom/ns2-svk.dts"
+/dts-v1/;
+
+# 1 "arch/arm64/boot/dts/broadcom/ns2.dtsi" 1
+# 33 "arch/arm64/boot/dts/broadcom/ns2.dtsi"
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 1
+
+
+
+
+
+
+
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h" 1
+# 9 "./arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 2
+# 34 "arch/arm64/boot/dts/broadcom/ns2.dtsi" 2
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/clock/bcm-ns2.h" 1
+# 35 "arch/arm64/boot/dts/broadcom/ns2.dtsi" 2
+
+/memreserve/ 0x84b00000 0x00000008;
+
+/ {
+ compatible = "brcm,ns2";
+ interrupt-parent = <&gic>;
+ #address-cells = <2>;
+ #size-cells = <2>;
+
+ cpus {
+  #address-cells = <2>;
+  #size-cells = <0>;
+
+  A57_0: cpu@0 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a57", "arm,armv8";
+   reg = <0 0>;
+   enable-method = "spin-table";
+   cpu-release-addr = <0 0x84b00000>;
+   next-level-cache = <&CLUSTER0_L2>;
+  };
+
+  A57_1: cpu@1 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a57", "arm,armv8";
+   reg = <0 1>;
+   enable-method = "spin-table";
+   cpu-release-addr = <0 0x84b00000>;
+   next-level-cache = <&CLUSTER0_L2>;
+  };
+
+  A57_2: cpu@2 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a57", "arm,armv8";
+   reg = <0 2>;
+   enable-method = "spin-table";
+   cpu-release-addr = <0 0x84b00000>;
+   next-level-cache = <&CLUSTER0_L2>;
+  };
+
+  A57_3: cpu@3 {
+   device_type = "cpu";
+   compatible = "arm,cortex-a57", "arm,armv8";
+   reg = <0 3>;
+   enable-method = "spin-table";
+   cpu-release-addr = <0 0x84b00000>;
+   next-level-cache = <&CLUSTER0_L2>;
+  };
+
+  CLUSTER0_L2: l2-cache@000 {
+   compatible = "cache";
+  };
+ };
+
+ timer {
+  compatible = "arm,armv8-timer";
+  interrupts = <1 13 (((0xff) << 8) |
+         1)>,
+        <1 14 (((0xff) << 8) |
+         1)>,
+        <1 11 (((0xff) << 8) |
+         1)>,
+        <1 10 (((0xff) << 8) |
+         1)>;
+ };
+
+ pmu {
+  compatible = "arm,armv8-pmuv3";
+  interrupts = <0 168 4>,
+        <0 169 4>,
+        <0 170 4>,
+        <0 171 4>;
+  interrupt-affinity = <&A57_0>,
+         <&A57_1>,
+         <&A57_2>,
+         <&A57_3>;
+ };
+
+ clocks {
+  #address-cells = <1>;
+  #size-cells = <1>;
+
+  osc: oscillator {
+   #clock-cells = <0>;
+   compatible = "fixed-clock";
+   clock-frequency = <25000000>;
+  };
+
+  iprocmed: iprocmed {
+   #clock-cells = <0>;
+   compatible = "fixed-factor-clock";
+   clocks = <&genpll_scr 1>;
+   clock-div = <2>;
+   clock-mult = <1>;
+  };
+
+  iprocslow: iprocslow {
+   #clock-cells = <0>;
+   compatible = "fixed-factor-clock";
+   clocks = <&genpll_scr 1>;
+   clock-div = <4>;
+   clock-mult = <1>;
+  };
+ };
+
+ soc: soc {
+  compatible = "simple-bus";
+  #address-cells = <1>;
+  #size-cells = <1>;
+  ranges = <0 0 0 0xffffffff>;
+
+  smmu: mmu@64000000 {
+   compatible = "arm,mmu-500";
+   reg = <0x64000000 0x40000>;
+   #global-interrupts = <2>;
+   interrupts = <0 229 4>,
+         <0 230 4>,
+         <0 231 4>,
+         <0 232 4>,
+         <0 233 4>,
+         <0 234 4>,
+         <0 235 4>,
+         <0 236 4>,
+         <0 237 4>,
+         <0 238 4>,
+         <0 239 4>,
+         <0 240 4>,
+         <0 241 4>,
+         <0 242 4>,
+         <0 243 4>,
+         <0 244 4>,
+         <0 245 4>,
+         <0 246 4>,
+         <0 247 4>,
+         <0 248 4>,
+         <0 249 4>,
+         <0 250 4>,
+         <0 251 4>,
+         <0 252 4>,
+         <0 253 4>,
+         <0 254 4>,
+         <0 255 4>,
+         <0 256 4>,
+         <0 257 4>,
+         <0 258 4>,
+         <0 259 4>,
+         <0 260 4>,
+         <0 261 4>,
+         <0 262 4>;
+   mmu-masters;
+  };
+
+  lcpll_ddr: lcpll_ddr@6501d058 {
+   #clock-cells = <1>;
+   compatible = "brcm,ns2-lcpll-ddr";
+   reg = <0x6501d058 0x20>,
+         <0x6501c020 0x4>,
+         <0x6501d04c 0x4>;
+   clocks = <&osc>;
+   clock-output-names = "lcpll_ddr", "pcie_sata_usb",
+          "ddr", "ddr_ch2_unused",
+          "ddr_ch3_unused", "ddr_ch4_unused",
+          "ddr_ch5_unused";
+  };
+
+  lcpll_ports: lcpll_ports@6501d078 {
+   #clock-cells = <1>;
+   compatible = "brcm,ns2-lcpll-ports";
+   reg = <0x6501d078 0x20>,
+         <0x6501c020 0x4>,
+         <0x6501d054 0x4>;
+   clocks = <&osc>;
+   clock-output-names = "lcpll_ports", "wan", "rgmii",
+          "ports_ch2_unused",
+          "ports_ch3_unused",
+          "ports_ch4_unused",
+          "ports_ch5_unused";
+  };
+
+  genpll_scr: genpll_scr@6501d098 {
+   #clock-cells = <1>;
+   compatible = "brcm,ns2-genpll-scr";
+   reg = <0x6501d098 0x32>,
+         <0x6501c020 0x4>,
+         <0x6501d044 0x4>;
+   clocks = <&osc>;
+   clock-output-names = "genpll_scr", "scr", "fs",
+          "audio_ref", "scr_ch3_unused",
+          "scr_ch4_unused", "scr_ch5_unused";
+  };
+
+  genpll_sw: genpll_sw@6501d0c4 {
+   #clock-cells = <1>;
+   compatible = "brcm,ns2-genpll-sw";
+   reg = <0x6501d0c4 0x32>,
+         <0x6501c020 0x4>,
+         <0x6501d044 0x4>;
+   clocks = <&osc>;
+   clock-output-names = "genpll_sw", "rpe", "250", "nic",
+          "chimp", "port", "sdio";
+  };
+
+  crmu: crmu@65024000 {
+   compatible = "syscon";
+   reg = <0x65024000 0x100>;
+  };
+
+  reboot@65024000 {
+   compatible ="syscon-reboot";
+   regmap = <&crmu>;
+   offset = <0x90>;
+   mask = <0xfffffffd>;
+  };
+
+  gic: interrupt-controller@65210000 {
+   compatible = "arm,gic-400";
+   #interrupt-cells = <3>;
+   interrupt-controller;
+   reg = <0x65210000 0x1000>,
+         <0x65220000 0x1000>,
+         <0x65240000 0x2000>,
+         <0x65260000 0x1000>;
+  };
+
+  i2c0: i2c@66080000 {
+   compatible = "brcm,iproc-i2c";
+   reg = <0x66080000 0x100>;
+   #address-cells = <1>;
+   #size-cells = <0>;
+   interrupts = <0 394 0>;
+   clock-frequency = <100000>;
+   status = "disabled";
+  };
+
+  i2c1: i2c@660b0000 {
+   compatible = "brcm,iproc-i2c";
+   reg = <0x660b0000 0x100>;
+   #address-cells = <1>;
+   #size-cells = <0>;
+   interrupts = <0 395 0>;
+   clock-frequency = <100000>;
+   status = "disabled";
+  };
+
+  uart3: serial@66130000 {
+   compatible = "snps,dw-apb-uart";
+   reg = <0x66130000 0x100>;
+   interrupts = <0 393 4>;
+   reg-shift = <2>;
+   reg-io-width = <4>;
+   clocks = <&osc>;
+   status = "disabled";
+  };
+
+  hwrng: hwrng@66220000 {
+   compatible = "brcm,iproc-rng200";
+   reg = <0x66220000 0x28>;
+  };
+
+  nand: nand@66460000 {
+   compatible = "brcm,nand-iproc", "brcm,brcmnand-v6.1";
+   reg = <0x66460000 0x600>,
+         <0x67015408 0x600>,
+         <0x66460f00 0x20>;
+   reg-names = "nand", "iproc-idm", "iproc-ext";
+   interrupts = <0 420 4>;
+
+   #address-cells = <1>;
+   #size-cells = <0>;
+
+   brcm,nand-has-wp;
+  };
+ };
+};
+# 36 "arch/arm64/boot/dts/broadcom/ns2-svk.dts" 2
+
+/ {
+ model = "Broadcom NS2 SVK";
+ compatible = "brcm,ns2-svk", "brcm,ns2";
+
+ aliases {
+  serial0 = &uart3;
+ };
+
+ chosen {
+  stdout-path = "serial0:115200n8";
+ };
+
+ memory {
+  device_type = "memory";
+  reg = <0x000000000 0x80000000 0x00000000 0x40000000>;
+ };
+};
+
+&i2c0 {
+ status = "ok";
+};
+
+&i2c1 {
+ status = "ok";
+};
+
+&uart3 {
+ status = "ok";
+};
+
+&nand {
+ nandcs@0 {
+  compatible = "brcm,nandcs";
+  reg = <0>;
+  nand-ecc-mode = "hw";
+  nand-ecc-strength = <8>;
+  nand-ecc-step-size = <512>;
+  #address-cells = <1>;
+  #size-cells = <1>;
+ };
+};

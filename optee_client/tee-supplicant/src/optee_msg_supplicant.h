@@ -254,4 +254,22 @@
  * End of definitions for messages with .cmd == OPTEE_MSG_RPC_CMD_SOCKET
  */
 
+#define TEST_OCALL 20
+
+#define OCALL_READ 21
+
+#define OCALL_FILE_BENCH 22
+
+#define OCALL_TAP_OPEN 23
+
+#define OCALL_GET_MAC 24
+
+#define OCALL_CLOSE 25
+
+#define OCALL_WRITE 26
+
+#define OCALL_POLL 27
+
+#define OCALL_OPEN 28
+
 #endif /*__OPTEE_MSG_SUPPLICANT_H*/

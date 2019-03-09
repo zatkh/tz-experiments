@@ -1,0 +1,1 @@
+arch/arm64/boot/dts/freescale/fsl-ls1043a-rdb.dtb: arch/arm64/boot/dts/freescale/.fsl-ls1043a-rdb.dtb.dts.tmp arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi

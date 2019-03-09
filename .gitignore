@@ -18,7 +18,7 @@ edk2/
 *.ta
 cscope.*
 optee_examples/out/
-optee_examples/minor_test/host/optee_example_minor_test
+optee_examples/tests/host/optee_example_tests
 optee_examples/random/host/optee_example_random
 optee_examples/aes/host/optee_example_aes
 optee_examples/hotp/host/optee_example_hotp

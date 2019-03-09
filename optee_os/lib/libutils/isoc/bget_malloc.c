@@ -823,6 +823,12 @@ void *malloc(size_t size)
 	return p;
 }
 
+void *alloca(size_t size)
+{
+	return malloc(size);
+
+}
+
 void free(void *ptr)
 {
 	uint32_t exceptions = malloc_lock();

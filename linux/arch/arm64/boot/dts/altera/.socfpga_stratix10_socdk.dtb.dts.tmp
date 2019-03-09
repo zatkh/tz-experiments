@@ -1,0 +1,28 @@
+# 1 "arch/arm64/boot/dts/altera/socfpga_stratix10_socdk.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "arch/arm64/boot/dts/altera/socfpga_stratix10_socdk.dts"
+# 17 "arch/arm64/boot/dts/altera/socfpga_stratix10_socdk.dts"
+/include/ "socfpga_stratix10.dtsi"
+
+/ {
+ model = "SoCFPGA Stratix 10 SoCDK";
+
+ aliases {
+  serial0 = &uart0;
+ };
+
+ chosen {
+  stdout-path = "serial0:115200n8";
+ };
+
+ memory {
+  device_type = "memory";
+
+  reg = <0 0 0 0>;
+ };
+};
+
+&uart0 {
+ status = "okay";
+};

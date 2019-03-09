@@ -35,6 +35,6 @@ RUN make -C $BUILDPATH toolchains
 
 # two opened terminals, one NW the other SW
 # in the NW one type: root for login
-# then type minor_test (or other examples in optee_example dir)
+# then type tests (or other examples in optee_example dir)
 # check the results in the both terminals
 

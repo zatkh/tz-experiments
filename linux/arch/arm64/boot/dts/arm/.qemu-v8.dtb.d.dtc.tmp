@@ -1,0 +1,1 @@
+arch/arm64/boot/dts/arm/qemu-v8.dtb: arch/arm64/boot/dts/arm/.qemu-v8.dtb.dts.tmp

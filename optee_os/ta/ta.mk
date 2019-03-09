@@ -58,10 +58,6 @@ libname = openlibm
 libdir = lib/libopenlibm
 include mk/lib.mk
 
-libname = bmfs
-libdir = lib/libbmfs
-include mk/lib.mk
-
 libname = zlib
 libdir = lib/libzlib
 include mk/lib.mk
@@ -73,6 +69,25 @@ include mk/lib.mk
 libname = nolibc
 libdir = lib/libnolibc
 include mk/lib.mk
+
+libname = asmrun
+libdir = lib/libasmrun
+include mk/lib.mk
+
+libname = camlrun
+libdir = lib/libcamlrun
+include mk/lib.mk
+
+
+#libname = bmfs
+#libdir = lib/libbmfs
+#include mk/lib.mk
+
+#libname = ccv
+#libdir = lib/libccv
+#include mk/lib.mk
+
+
 
 
 ifeq ($(CFG_TA_MBEDTLS),y)

@@ -15,6 +15,19 @@
 #include <stddef.h>
 #include <malloc.h>
 
+typedef struct 
+{
+  int quot; /* quotient */
+  int rem; /* remainder */
+} div_t;
+
+typedef struct 
+{
+  long quot; /* quotient */
+  long rem; /* remainder */
+} ldiv_t;
+
+
 void
 qsort(void *aa, size_t n, size_t es, int (*cmp)(const void *, const void *));
 
@@ -33,6 +46,11 @@ char *getenv(const char *);
 char *secure_getenv(const char *);
 int system(const char *);
 double strtod(const char *, char **);
+
+ldiv_t ldiv (long num, long denom);
+//long long int strtoll( const char *  nptr, char * * _PDCLIB_restrict endptr, int base ) _PDCLIB_nothrow;
+//unsigned long int strtoul( const char *  nptr, char * *  endptr, int base ) ;
+//unsigned long long int strtoull( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base ) _PDCLIB_nothrow;
 
 
 #endif /* STDLIB_H */

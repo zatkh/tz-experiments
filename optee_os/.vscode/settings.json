@@ -1,0 +1,30 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "util.h": "c",
+        "cmath": "c",
+        "time.h": "c",
+        "arm_neon.h": "c",
+        "cblas.h": "c",
+        "stddef.h": "c",
+        "complex.h": "c",
+        "omp.h": "c",
+        "console.h": "c",
+        "ratio": "cpp",
+        "type_traits": "cpp",
+        "ctype.h": "c",
+        "string.h": "c",
+        "fstream": "cpp",
+        "array": "c",
+        "system_error": "c",
+        "tee_misc.h": "c",
+        "*.i": "c",
+        "chrono": "c",
+        "printk.h": "c",
+        "bitset": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "mobj.h": "c"
+    }
+}

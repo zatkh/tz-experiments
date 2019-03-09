@@ -711,6 +711,8 @@ static TEEC_Result tee_socket_ioctl(size_t num_params,
 	}
 }
 
+
+
 TEEC_Result tee_socket_process(size_t num_params,
 			       struct tee_ioctl_param *params)
 {
@@ -730,6 +732,7 @@ TEEC_Result tee_socket_process(size_t num_params,
 		return tee_socket_recv(num_params, params);
 	case OPTEE_MRC_SOCKET_IOCTL:
 		return tee_socket_ioctl(num_params, params);
+	
 	default:
 		return TEEC_ERROR_BAD_PARAMETERS;
 	}

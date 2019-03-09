@@ -1,0 +1,1 @@
+arch/arm64/boot/dts/amd/amd-overdrive.dtb: arch/arm64/boot/dts/amd/.amd-overdrive.dtb.dts.tmp arch/arm64/boot/dts/amd/amd-seattle-soc.dtsi arch/arm64/boot/dts/amd/amd-seattle-clks.dtsi

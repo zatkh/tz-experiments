@@ -25,6 +25,6 @@ make clean
 make ta-targets=ta_arm64 run -j$(nproc)
 # two opened terminals, one NW the other SW
 # in the NW one type: root for login
-# then type minor_test (or other examples in optee_example dir)
+# then type tests (or other examples in optee_example dir)
 # check the results in the both terminals
 

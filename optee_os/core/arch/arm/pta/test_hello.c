@@ -14,9 +14,32 @@
 #include <stdlib.h>
 
 
-#define THELLO_PTA_NAME "thello.pta" 
+#define ENCLAVE_NAME "test_enclave.pta" 
 
 
+static TEE_Result ocall_test(uint32_t param_types __unused,
+			TEE_Param params[TEE_NUM_PARAMS] __unused)
+{
+
+
+	struct optee_msg_param rpc_params;
+	static struct mutex reg_mu = MUTEX_INITIALIZER;
+	TEE_Result res;
+
+	memset(&rpc_params, 0, sizeof(rpc_params));
+	rpc_params.attr = OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
+	rpc_params.u.value.a = 12;
+	rpc_params.u.value.b = 13;
+	rpc_params.u.value.c = 14;
+
+	 res=thread_rpc_cmd(TEST_OCALL, 1, &rpc_params);
+
+	
+	IMSG("empty \n" );
+
+	 return TEE_SUCCESS;
+
+}
 
 static TEE_Result test_hello(uint32_t param_types __unused,
 			TEE_Param params[TEE_NUM_PARAMS] __unused)
@@ -31,13 +54,13 @@ static TEE_Result open_session(uint32_t nParamTypes __unused,
 		TEE_Param pParams[TEE_NUM_PARAMS] __unused,
 		void **ppSessionContext __unused)
 {
-	DMSG("open entry point for pseudo ta \"%s\"", THELLO_PTA_NAME);
+	DMSG("open entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
 	return TEE_SUCCESS;
 }
 
 static void close_session(void *pSessionContext __unused)
 {
-	DMSG("close entry point for pseudo ta \"%s\"", THELLO_PTA_NAME);
+	DMSG("close entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
 }
 
 /*
@@ -46,24 +69,30 @@ static void close_session(void *pSessionContext __unused)
 
 static TEE_Result create_ta(void)
 {
-	DMSG("create entry point for pseudo TA \"%s\"", THELLO_PTA_NAME);
+	DMSG("create entry point for pseudo TA \"%s\"", ENCLAVE_NAME);
 	return TEE_SUCCESS;
 }
 
 static void destroy_ta(void)
 {
-	DMSG("destroy entry point for pseudo ta \"%s\"", THELLO_PTA_NAME);
+	DMSG("destroy entry point for pseudo ta \"%s\"", ENCLAVE_NAME);
 }
+
+
+
+
 
 static TEE_Result invoke_command(void *pSessionContext __unused,
 				 uint32_t nCommandID, uint32_t nParamTypes,
 				 TEE_Param pParams[TEE_NUM_PARAMS])
 {
-	FMSG("command entry point for pseudo-TA \"%s\"", THELLO_PTA_NAME);
+	FMSG("command entry point for pseudo-TA \"%s\"", ENCLAVE_NAME);
 
 	switch (nCommandID) {
-	case PTA_HELLO:
+	case ENCLAVE_CONSOLE_TEST:
 		return test_hello(nParamTypes, pParams);
+	case PTA_TEST_OCALL:
+		return ocall_test(nParamTypes, pParams);	
 	default:
 		break;
 	}
@@ -72,7 +101,7 @@ static TEE_Result invoke_command(void *pSessionContext __unused,
 }
 
 
-pseudo_ta_register(.uuid = PTA_THELLO_UUID, .name = THELLO_PTA_NAME,
+pseudo_ta_register(.uuid = PTA_THELLO_UUID, .name = ENCLAVE_NAME,
 		   .flags = PTA_DEFAULT_FLAGS | TA_FLAG_SECURE_DATA_PATH |
 			    TA_FLAG_CONCURRENT,
 		   .create_entry_point = create_ta,

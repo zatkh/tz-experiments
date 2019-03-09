@@ -1,0 +1,193 @@
+[micro-bench] init latency for itertaion number [0] :309964032
+[micro-bench] init latency for itertaion number [1] :332873232
+[micro-bench] init latency for itertaion number [2] :296860864
+[micro-bench] init latency for itertaion number [3] :312570064
+[micro-bench] init latency for itertaion number [4] :301998512
+[micro-bench] init latency for itertaion number [5] :304450576
+[micro-bench] init latency for itertaion number [6] :267935344
+[micro-bench] init latency for itertaion number [7] :256481120
+[micro-bench] init latency for itertaion number [8] :260483264
+[micro-bench] init latency for itertaion number [9] :253953152
+[micro-bench] total init latency for itertaion number [0] :546457360
+[micro-bench] total init latency for itertaion number [1] :300814416
+[micro-bench] total init latency for itertaion number [2] :253491488
+[micro-bench] total init latency for itertaion number [3] :260417264   
+[micro-bench] total init latency for itertaion number [4] :332083696     
+[micro-bench] total init latency for itertaion number [5] :324277456     
+[micro-bench] total init latency for itertaion number [6] :365989552     
+[micro-bench] total init latency for itertaion number [7] :361258784     
+[micro-bench] total init latency for itertaion number [8] :258454608     
+[micro-bench] total init latency for itertaion number [9] :257677872  
+[micro-bench] init enclaves latency for itertaion number [0] :272850416
+[micro-bench] destroy enclaves latency for itertaion number [0] :43694112
+[micro-bench] init enclaves latency for itertaion number [1] :214181856  
+[micro-bench] destroy enclaves latency for itertaion number [1] :41046336
+[micro-bench] init enclaves latency for itertaion number [2] :213694992  
+[micro-bench] destroy enclaves latency for itertaion number [2] :53360512
+[micro-bench] init enclaves latency for itertaion number [3] :302687200  
+[micro-bench] destroy enclaves latency for itertaion number [3] :43577744
+[micro-bench] init enclaves latency for itertaion number [4] :215317104  
+[micro-bench] destroy enclaves latency for itertaion number [4] :44540448
+[micro-bench] init enclaves latency for itertaion number [5] :219101616  
+[micro-bench] destroy enclaves latency for itertaion number [5] :42855040
+[micro-bench] init enclaves latency for itertaion number [6] :270483008  
+[micro-bench] destroy enclaves latency for itertaion number [6] :44720896
+[micro-bench] init enclaves latency for itertaion number [7] :222264160  
+[micro-bench] destroy enclaves latency for itertaion number [7] :47978672
+[micro-bench] init enclaves latency for itertaion number [8] :223608832  
+[micro-bench] destroy enclaves latency for itertaion number [8] :39162608
+[micro-bench] init enclaves latency for itertaion number [9] :222333632  
+[micro-bench] destroy enclaves latency for itertaion number [9] :41915168
+[micro-bench] puts_latency for itertaion number [0] :515536
+[micro-bench] puts_latency for itertaion number [1] :84288
+[micro-bench] puts_latency for itertaion number [2] :139536
+[micro-bench] puts_latency for itertaion number [3] :161664
+[micro-bench] puts_latency for itertaion number [4] :67008
+[micro-bench] puts_latency for itertaion number [5] :73680
+[micro-bench] puts_latency for itertaion number [6] :70928
+[micro-bench] puts_latency for itertaion number [7] :72000
+[micro-bench] puts_latency for itertaion number [8] :74224
+[micro-bench] puts_latency for itertaion number [9] :79424
+[micro-bench] ecall_puts_latency for itertaion number [0] :3649872
+[micro-bench] ecall_puts_latency for itertaion number [1] :2242272
+[micro-bench] ecall_puts_latency for itertaion number [2] :1305568
+[micro-bench] ecall_puts_latency for itertaion number [3] :1193440
+[micro-bench] ecall_puts_latency for itertaion number [4] :1296912
+[micro-bench] ecall_puts_latency for itertaion number [5] :999312
+[micro-bench] ecall_puts_latency for itertaion number [6] :970320
+[micro-bench] ecall_puts_latency for itertaion number [7] :1073888
+[micro-bench] ecall_puts_latency for itertaion number [8] :1438432
+[micro-bench] ecall_puts_latency for itertaion number [9] :1007568
+******************************************************************************************
+
+[micro-bench] puts_latency for itertaion number [0] :541552
+[micro-bench] puts_latency for itertaion number [1] :103616
+[micro-bench] puts_latency for itertaion number [2] :106720
+[micro-bench] puts_latency for itertaion number [3] :74592
+[micro-bench] puts_latency for itertaion number [4] :87328
+[micro-bench] puts_latency for itertaion number [5] :104912
+[micro-bench] puts_latency for itertaion number [6] :90624
+[micro-bench] puts_latency for itertaion number [7] :87312
+[micro-bench] puts_latency for itertaion number [8] :88288
+[micro-bench] puts_latency for itertaion number [9] :87472
+[micro-bench] puts_latency average :137241
+[micro-bench] ecall_puts_latency for itertaion number [0] :3627200
+[micro-bench] ecall_puts_latency for itertaion number [1] :1791696
+[micro-bench] ecall_puts_latency for itertaion number [2] :1454928
+[micro-bench] ecall_puts_latency for itertaion number [3] :1217952
+[micro-bench] ecall_puts_latency for itertaion number [4] :1584080
+[micro-bench] ecall_puts_latency for itertaion number [5] :986224
+[micro-bench] ecall_puts_latency for itertaion number [6] :958688
+[micro-bench] ecall_puts_latency for itertaion number [7] :1963216
+[micro-bench] ecall_puts_latency for itertaion number [8] :1382960
+[micro-bench] ecall_puts_latency for itertaion number [9] :1639600
+[micro-bench] ecall_puts_latency average :1660654
+******************************************************************************************
+[micro-bench] hello_file_bench for itertaion number [0] :2822112
+[micro-bench] hello_file_bench for itertaion number [1] :371632
+[micro-bench] hello_file_bench for itertaion number [2] :233232
+[micro-bench] hello_file_bench for itertaion number [3] :215680
+[micro-bench] hello_file_bench for itertaion number [4] :212128
+[micro-bench] hello_file_bench for itertaion number [5] :211408
+[micro-bench] hello_file_bench for itertaion number [6] :210016
+[micro-bench] hello_file_bench for itertaion number [7] :211008
+[micro-bench] hello_file_bench for itertaion number [8] :211632
+[micro-bench] hello_file_bench for itertaion number [9] :219424
+[micro-bench] hello_file_bench average :491827
+[micro-bench] ecall_hello_fle_benchfor itertaion number [0] :4118784
+[micro-bench] ecall_hello_fle_benchfor itertaion number [1] :1525504
+[micro-bench] ecall_hello_fle_benchfor itertaion number [2] :1972320
+[micro-bench] ecall_hello_fle_benchfor itertaion number [3] :1480416
+[micro-bench] ecall_hello_fle_benchfor itertaion number [4] :1450800
+[micro-bench] ecall_hello_fle_benchfor itertaion number [5] :1881952
+[micro-bench] ecall_hello_fle_benchfor itertaion number [6] :1328640
+[micro-bench] ecall_hello_fle_benchfor itertaion number [7] :1523856
+[micro-bench] ecall_hello_fle_benchfor itertaion number [8] :1302528
+[micro-bench] ecall_hello_fle_benchfor itertaion number [9] :1302720
+[micro-bench] ecall_hello_fle_bench average :1788752
+
+******************************************************************************************
+
+[micro-bench] hello_file_bench for itertaion number [0] :2026064
+[micro-bench] hello_file_bench for itertaion number [1] :287664
+[micro-bench] hello_file_bench for itertaion number [2] :173920
+[micro-bench] hello_file_bench for itertaion number [3] :150064
+[micro-bench] hello_file_bench for itertaion number [4] :180816
+[micro-bench] hello_file_bench for itertaion number [5] :156736
+[micro-bench] hello_file_bench for itertaion number [6] :157008
+[micro-bench] hello_file_bench for itertaion number [7] :170368
+[micro-bench] hello_file_bench for itertaion number [8] :199120
+[micro-bench] hello_file_bench for itertaion number [9] :231200
+[micro-bench] hello_file_bench average :373296
+[micro-bench] ecall_hello_fle_benchfor itertaion number [0] :4641232
+[micro-bench] ecall_hello_fle_benchfor itertaion number [1] :1566208
+[micro-bench] ecall_hello_fle_benchfor itertaion number [2] :1599952
+[micro-bench] ecall_hello_fle_benchfor itertaion number [3] :1313056
+[micro-bench] ecall_hello_fle_benchfor itertaion number [4] :2003216
+[micro-bench] ecall_hello_fle_benchfor itertaion number [5] :1903152
+[micro-bench] ecall_hello_fle_benchfor itertaion number [6] :2302224
+[micro-bench] ecall_hello_fle_benchfor itertaion number [7] :1937600
+[micro-bench] ecall_hello_fle_benchfor itertaion number [8] :1534496
+[micro-bench] ecall_hello_fle_benchfor itertaion number [9] :1424208
+[micro-bench] ecall_hello_fle_bench average :2022534
+
+1000 call-->4.5
+[micro-bench] hello_file_bench average :329578
+[micro-bench] ecall_hello_fle_bench average :1490643
+
+1000 empty
+[micro-bench] hello_file_bench average :1595
+[micro-bench] ecall_hello_fle_bench average :1028107
+
+******************************************************************************************
+itter =10
+[micro-bench] ECALL_INIT_PRIVATE_FILE latency :6017328
+[micro-bench] ECALL_CREATE latency :1212576
+[micro-bench] ECALL_OPEN average :834964
+[micro-bench] ECALL_WRITE average :1015412
+[micro-bench] ECALL_SEEK average :742448
+[micro-bench] ECALL_READ average :1344827
+[micro-bench] ECALL_READ average :962380
+[micro-bench] ECALL_BMFS_CLEAN latency :1501696
+[micro-bench] open average :32200
+[micro-bench] write average :16193
+[micro-bench] seek average :11364
+[micro-bench] read average :1844674407369537073
+[micro-bench] close average :1844674407368402635
+
+
+******************************************************************************************
+itter 100
+[micro-bench] ECALL_INIT_PRIVATE_FILE latency :5202128
+[micro-bench] ECALL_CREATE latency :1128880
+[micro-bench] ECALL_OPEN average :813870
+[micro-bench] ECALL_WRITE average :774970
+[micro-bench] ECALL_SEEK average :795228
+[micro-bench] ECALL_READ average :847394
+[micro-bench] ECALL_READ average :797933
+[micro-bench] ECALL_BMFS_CLEAN latency :1242016
+[micro-bench] open average :22924
+[micro-bench] write average :8278
+[micro-bench] seek average :3226
+[micro-bench] read average :7953
+[micro-bench] close average :2886
+
+[micro-bench] ECALL_INIT_PRIVATE_FILE latency :3447920
+[micro-bench] ECALL_CREATE latency :1651360
+[micro-bench] ECALL_OPEN average :809699
+[micro-bench] ECALL_WRITE average :841470
+[micro-bench] ECALL_SEEK average :725621
+[micro-bench] ECALL_READ average :876571
+[micro-bench] ECALL_READ average :833195
+[micro-bench] ECALL_BMFS_CLEAN latency :1530416
+[micro-bench] open average :19665
+[micro-bench] write average :10535
+[micro-bench] seek average :2643
+[micro-bench] read average :7938
+[micro-bench] close average :2851
+
+******************************************************************************************
+
+~
+
+
