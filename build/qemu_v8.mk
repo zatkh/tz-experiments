@@ -204,8 +204,9 @@ check-clean:
 	rm -f serial0.log serial1.log
 
 .PHONY: run-TF
+
 run-TF:
-	ln -sf /home/zt233/Documents/git/snape/TFA-qemu/rootfs_copy.cpio.gz $(BINARIES_PATH)/
+	ln -sf $(ROOT)/buildroot/output/images/rootfs_copy.cpio.gz $(BINARIES_PATH)/
 	$(call check-terminal)
 	$(call run-help)
 	$(call launch-terminal,54320,"Normal World")
