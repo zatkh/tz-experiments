@@ -205,3 +205,24 @@ check-only: check
 
 check-clean:
 	rm -f serial0.log serial1.log
+
+.PHONY: run-TF
+run-TF:
+	ln -sf $(ROOT)/buildroot/output/images/rootfs_copy.cpio.gz $(BINARIES_PATH)/
+	$(call check-terminal)
+	$(call run-help)
+	$(call launch-terminal,54320,"Normal World")
+	$(call launch-terminal,54321,"Secure World")
+	$(call wait-for-ports,54320,54321)
+	cd $(BINARIES_PATH) && $(QEMU_PATH)/aarch64-softmmu/qemu-system-aarch64 \
+		-nographic \
+		-serial tcp:localhost:54320 -serial tcp:localhost:54321 \
+		-smp $(QEMU_SMP) \
+		-s -S -machine virt,secure=on -cpu cortex-a57 \
+		-d unimp -semihosting-config enable,target=native \
+		-m 1057 \
+		-bios bl1.bin \
+		-initrd rootfs_copy.cpio.gz \
+		-kernel Image -no-acpi \
+		-append 'console=ttyAMA0,38400 keep_bootcon root=/dev/vda2' \
+		$(QEMU_EXTRA_ARGS)

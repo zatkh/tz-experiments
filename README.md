@@ -1,5 +1,18 @@
 # basic tz tests
-Build:
+
+###Main Components:
+
+optee_os: secure world kernel
+
+arm trusted firmware: secure boot
+
+linux: normal world OS
+
+optee_client: mormal world driver
+
+optee_examples: simple aplication examples
+
+###Build:
 
 1- build script:
 
@@ -19,7 +32,11 @@ or
 
 >> make ta-targets=ta_arm64 run -j$(nproc)
 
-Tests: 
+3- Boot kernel with ARM trusted firmware only (no optee):
 
-In NW terminal after login (type root), run tests(or other tests in examples directory)
+>> ./run-ATF-only (after ./build.sh)
+
+###Run Tests: 
+
+In NW terminal after login (type root), run tests(or other examples in optee_examples directory)
 
