@@ -25,6 +25,8 @@
         "bitset": "c",
         "initializer_list": "c",
         "utility": "c",
-        "mobj.h": "c"
+        "mobj.h": "c",
+        "time_source.h": "c",
+        "tee_time.h": "c"
     }
 }

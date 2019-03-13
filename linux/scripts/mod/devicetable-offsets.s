@@ -8,12 +8,12 @@
 // -I include -I ./arch/arm64/include/uapi
 // -I arch/arm64/include/generated/uapi -I ./include/uapi
 // -I include/generated/uapi -imultiarch aarch64-linux-gnu
-// -iprefix /home/zt233/Documents/git/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
-// -isysroot /home/zt233/Documents/git/test-tz/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
+// -iprefix /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
+// -isysroot /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
 // -D __KERNEL__ -D CONFIG_AS_LSE=1 -D CC_HAVE_ASM_GOTO -D KBUILD_STR(s)=#s
 // -D KBUILD_BASENAME=KBUILD_STR(devicetable_offsets)
 // -D KBUILD_MODNAME=KBUILD_STR(devicetable_offsets)
-// -isystem /home/zt233/Documents/git/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
+// -isystem /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
 // -include ./include/linux/kconfig.h scripts/mod/devicetable-offsets.c
 // -mlittle-endian -mgeneral-regs-only -mpc-relative-literal-loads
 // -march=armv8-a -mabi=lp64
@@ -1052,8 +1052,6 @@ main:
 	.string	"unsigned int"
 .LASF15:
 	.string	"main"
-.LASF14:
-	.string	"/home/zt233/Documents/git/test-tz/linux"
 .LASF7:
 	.string	"long unsigned int"
 .LASF6:
@@ -1081,5 +1079,7 @@ main:
 	.string	"short int"
 .LASF8:
 	.string	"sizetype"
+.LASF14:
+	.string	"/home/zt233/Documents/git/tz-experiments/linux"
 	.ident	"GCC: (Linaro GCC 6.2-2016.11) 6.2.1 20161016"
 	.section	.note.GNU-stack,"",@progbits

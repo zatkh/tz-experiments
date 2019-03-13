@@ -13,10 +13,12 @@ srcs-y += stpncpy.c
 srcs-y += strstr.c
 #srcs-y += stubs.c
 srcs-y += fprintf.c
+srcs-y += sysdeps_tz.c
 
 
 
-cflags-lib-y += -Wno-implicit-function-declaration
+
+#cflags-lib-y += -Wno-implicit-function-declaration
 cflags-dtoa.c-y += -fno-strict-aliasing
 #cflags-lib-$(CFG_ULIBS_GPROF) += -pg
 

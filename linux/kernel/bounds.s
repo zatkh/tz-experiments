@@ -8,12 +8,12 @@
 // -I include -I ./arch/arm64/include/uapi
 // -I arch/arm64/include/generated/uapi -I ./include/uapi
 // -I include/generated/uapi -imultiarch aarch64-linux-gnu
-// -iprefix /home/zt233/Documents/git/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
-// -isysroot /home/zt233/Documents/git/test-tz/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
+// -iprefix /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
+// -isysroot /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
 // -D __KERNEL__ -D CONFIG_AS_LSE=1 -D CC_HAVE_ASM_GOTO -D KBUILD_STR(s)=#s
 // -D KBUILD_BASENAME=KBUILD_STR(bounds)
 // -D KBUILD_MODNAME=KBUILD_STR(bounds)
-// -isystem /home/zt233/Documents/git/test-tz/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
+// -isystem /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
 // -include ./include/linux/kconfig.h kernel/bounds.c -mlittle-endian
 // -mgeneral-regs-only -mpc-relative-literal-loads -march=armv8-a
 // -mabi=lp64 -auxbase-strip kernel/bounds.s -g -O2 -Wall -Wundef
@@ -959,6 +959,8 @@ foo:
 	.string	"ZONE_DMA"
 .LASF46:
 	.string	"panic_on_io_nmi"
+.LASF101:
+	.string	"/home/zt233/Documents/git/tz-experiments/linux"
 .LASF73:
 	.string	"PG_reserved"
 .LASF40:
@@ -1025,16 +1027,14 @@ foo:
 	.string	"unsigned int"
 .LASF22:
 	.string	"__con_initcall_end"
-.LASF101:
-	.string	"/home/zt233/Documents/git/test-tz/linux"
+.LASF90:
+	.string	"PG_slob_free"
 .LASF65:
 	.string	"PG_referenced"
 .LASF67:
 	.string	"PG_dirty"
 .LASF26:
 	.string	"saved_command_line"
-.LASF90:
-	.string	"PG_slob_free"
 .LASF61:
 	.string	"system_states"
 .LASF3:
