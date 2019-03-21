@@ -1,3 +1,4 @@
+global-incdirs-y += include
 BRUNPATH=../libcamlrun/
 incdirs-y += $(BRUNPATH)
 
@@ -17,6 +18,7 @@ endif
 cppflags-y += -DSYS_$(SYSTEM) $(IFLEXDIR) $(LIBUNWIND_INCLUDE_FLAGS)
 cppflags-y += -g
 
+srcs-y += build_test.c
 srcs-y += $(BRUNPATH)startup_aux.c
 srcs-y += startup.c
 srcs-y += $(BRUNPATH)main.c

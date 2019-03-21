@@ -7,6 +7,10 @@
 #include <tee_api.h>
 //#include "test_bmfs.h"
 #include "test_libm.h"
+//#include "caml/backtrace_prim.h"
+#include "build_test.h"
+
+
 
 TEE_TASessionHandle snape_sess;
 const TEE_UUID snape_uuid = TEST_ENCLAVE_UUID;
@@ -149,6 +153,17 @@ static TEE_Result ta_bmfs_cleanup(uint32_t __unused param_types,
 }
 
 */
+
+static TEE_Result libasmrun_test(uint32_t __unused param_types,
+					TEE_Param __unused params[4])
+{
+  int avail=test_build();
+  printf("avail is %d\n", avail);
+
+	return TEE_SUCCESS;
+
+
+}
 static TEE_Result libm_test_call(uint32_t __unused param_types,
 					TEE_Param __unused params[4])
 
@@ -178,7 +193,8 @@ static TEE_Result inc_value(uint32_t param_types,
 	params[0].value.a++;
 	IMSG("Increase value to: %u", params[0].value.a);
 
-	
+	 //libasmrun_test();
+
 
 	return TEE_SUCCESS;
 }
@@ -258,7 +274,10 @@ TEE_Result TA_InvokeCommandEntryPoint(void __maybe_unused *sess_ctx,
 		return bmfs_test_seek_call(param_types, params);
 	case TA_BMFS_CLEAN:
 		return ta_bmfs_cleanup(param_types, params);
-*/			
+*/
+
+	case TA_LIBASMRUN_TEST:
+		return libasmrun_test(param_types, params);		
 	case TA_LIBM_TEST:
 		return libm_test_call(param_types, params);	
 	case ECALL_INC_VAL:

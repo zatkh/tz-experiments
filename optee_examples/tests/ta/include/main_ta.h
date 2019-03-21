@@ -43,7 +43,7 @@
 #define ECALL_INC_VAL		0
 #define TA_BMFS_TEST 2
 #define TA_LIBM_TEST 3
-
+#define TA_LIBASMRUN_TEST 4
 
 
 #define TA_OPEN_FILE_TEST 5

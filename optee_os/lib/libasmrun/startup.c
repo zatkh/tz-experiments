@@ -42,6 +42,12 @@
 #ifdef HAS_UI
 #include "caml/ui.h"
 #endif
+#include "build_test.h"
+
+
+int test_build(void){
+return 200;
+}
 
 extern int caml_parser_trace;
 CAMLexport header_t caml_atom_table[256];

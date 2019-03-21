@@ -55,12 +55,21 @@ int hello_ecnalve_test(void)
 			res, err_origin);
 	printf("ECALL_INC_VAL value to %d\n", op.params[0].value.a);
 
+	//memset(&op, 0, sizeof(op));
+	res = TEEC_InvokeCommand(&sess, TA_LIBASMRUN_TEST, &op,
+				 &err_origin);
+	if (res != TEEC_SUCCESS)
+		errx(1, "TEEC_InvokeCommand failed with code 0x%x origin 0x%x",
+			res, err_origin);
+
+
+
 
 	TEEC_CloseSession(&sess);
 
 	TEEC_FinalizeContext(&ctx);
 
-	printf("***********END HELLO_ENCLAVE******\n");
+	printf("***********END HELLO_ENCLAVE ! ******\n");
 
 	return 0;
 

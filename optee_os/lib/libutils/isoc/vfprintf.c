@@ -637,12 +637,11 @@ int printf_core(FILE *f, const char *fmt, va_list *ap, union arg *nl_arg, int *n
 
 int vfprintf(FILE *restrict f, const char *restrict fmt, va_list ap)
 {
-	va_list ap2;
+/*	va_list ap2;
 	int nl_type[NL_ARGMAX+1] = {0};
 	union arg nl_arg[NL_ARGMAX+1];
 	int ret;
 
-	/* the copy allows passing va_list* even if va_list is an array */
 	va_copy(ap2, ap);
 	if (printf_core(0, fmt, &ap2, nl_arg, nl_type) < 0) {
 		va_end(ap2);
@@ -652,4 +651,7 @@ int vfprintf(FILE *restrict f, const char *restrict fmt, va_list ap)
 	ret = printf_core(f, fmt, &ap2, nl_arg, nl_type);
 	va_end(ap2);
 	return ret;
+*/
+	printf("vfprintf no supported\n");
+	return -1;
 }
