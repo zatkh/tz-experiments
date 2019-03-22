@@ -27,7 +27,7 @@ srcs-y +=  roots.c
 srcs-y += $(BRUNPATH)signals.c
 srcs-y += signals_asm.c
 srcs-y += $(BRUNPATH)misc.c
-srcs-y += $(BRUNPATH)freelist.c	
+srcs-y += $(BRUNPATH)freelist.c
 srcs-y += $(BRUNPATH)major_gc.c
 srcs-y += $(BRUNPATH)minor_gc.c
 srcs-y += $(BRUNPATH)memory.c
@@ -52,17 +52,17 @@ srcs-y += $(BRUNPATH)$(UNIX_OR_WIN32).c
 srcs-y += $(BRUNPATH)printexc.c
 srcs-y += $(BRUNPATH)callback.c
 srcs-y += $(BRUNPATH)weak.c
-srcs-y += $(BRUNPATH)compact.c 
+srcs-y += $(BRUNPATH)compact.c
 srcs-y += $(BRUNPATH)finalise.c
 srcs-y += $(BRUNPATH)custom.c
 srcs-y += $(BRUNPATH)globroots.c
 srcs-y += backtrace_prim.c
-srcs-y += $(BRUNPATH)backtrace.c	
+srcs-y += $(BRUNPATH)backtrace.c
 srcs-y += natdynlink.c
 srcs-y += $(BRUNPATH)debugger.c
 srcs-y += $(BRUNPATH)meta.c
 srcs-y += $(BRUNPATH)dynlink.c
-srcs-y += clambda_checks.c 
+srcs-y += clambda_checks.c
 srcs-y += spacetime.c
 srcs-y += spacetime_snapshot.c
 srcs-y += spacetime_offline.c
@@ -72,8 +72,7 @@ srcs-y += $(BRUNPATH)bigarray.c
 
 srcs-y +=arm64.S
 
-cflags-lib-y =-nostdlib -u call_user_start_cpu0 -Wl,--gc-sections -Wl,-static -Wl,--start-group -lgcc -lstdc++ -lgcov -Wl,--end-group -Wl,-EL -Os -fno-strict-aliasing -fwrapv -Wall
-cppflags-lib-y =-Os -D_FILE_OFFSET_BITS=64 -DCAML_NAME_SPACE 
+cflags-lib-y =-fno-builtin -fno-builtin-printf -DCAML_NAME_SPACE
 
 #srcs-y :=
 #cflags-y :=

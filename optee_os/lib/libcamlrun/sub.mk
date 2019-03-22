@@ -49,5 +49,4 @@ srcs-y += bigarray.c
 srcs-y += main.c
 
 
-cflags-lib-y =-nostdlib -u call_user_start_cpu0 -Wl,--gc-sections -Wl,-static -Wl,--start-group -lgcc -lstdc++ -lgcov -Wl,--end-group -Wl,-EL -Os -fno-strict-aliasing -fwrapv -Wall
-cppflags-lib-y =-Os -D_FILE_OFFSET_BITS=64 -DCAML_NAME_SPACE 
+cflags-lib-y =-fno-builtin -fno-builtin-printf -DCAML_NAME_SPACE
