@@ -8,6 +8,7 @@
 #include <float.h>
 #include <stdint.h>
 
+
 /* Some useful macros */
 
 #define MAX(a,b) ((a)>(b) ? (a) : (b))
@@ -125,24 +126,3 @@ union arg
 	void *p;
 };
 
-
-int vfprintf(FILE *restrict f, const char *restrict fmt, va_list ap)
-{
-	/*va_list ap2;
-	int nl_type[NL_ARGMAX+1] = {0};
-	union arg nl_arg[NL_ARGMAX+1];
-	int ret;
-
-	va_copy(ap2, ap);
-	if (printf_core(0, fmt, &ap2, nl_arg, nl_type) < 0) {
-		va_end(ap2);
-		return -1;
-	}
-
-	ret = printf_core(f, fmt, &ap2, nl_arg, nl_type);
-	va_end(ap2);
-	return ret;
-*/
-	printf("vfprintf not supported");
-	return -1;
-}

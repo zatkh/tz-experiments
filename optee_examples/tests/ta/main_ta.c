@@ -11,7 +11,6 @@
 #include "build_test.h"
 
 
-
 TEE_TASessionHandle snape_sess;
 const TEE_UUID snape_uuid = TEST_ENCLAVE_UUID;
 
@@ -21,13 +20,12 @@ const TEE_UUID snape_uuid = TEST_ENCLAVE_UUID;
  */
 TEE_Result TA_CreateEntryPoint(void)
 {
-	DMSG("has been called");
+	DMSG("ya has been called");
+	TEE_Result res;
 
-		TEE_Result res;
-	
 	res = TEE_OpenTASession(&snape_uuid, 0, 0, NULL, &snape_sess, NULL);
-		if (res != TEE_SUCCESS)
-			return res;
+	if (res != TEE_SUCCESS)
+		return res;
 
 	return TEE_SUCCESS;
 }
@@ -98,7 +96,7 @@ static TEE_Result bmfs_test_call(uint32_t __unused param_types,
 	ret= bmfs_test();
 	if(ret == 0)
 	printf ("[bmfs_test_call] success\n");
-	else 
+	else
 	printf ("[bmfs_test_call] failed\n");
 
 	return TEE_SUCCESS;
@@ -109,7 +107,7 @@ static TEE_Result bmfs_test_open_call(uint32_t __unused param_types,
 
 {
 	bmfs_open_file_test();
-	
+
 
 	return TEE_SUCCESS;
 }
@@ -146,7 +144,7 @@ static TEE_Result bmfs_test_seek_call(uint32_t __unused param_types,
 
 static TEE_Result ta_bmfs_cleanup(uint32_t __unused param_types,
 					TEE_Param __unused params[4])
-					
+
 {
 	 	bmfs_cleanup();
 		return TEE_SUCCESS;
@@ -154,11 +152,16 @@ static TEE_Result ta_bmfs_cleanup(uint32_t __unused param_types,
 
 */
 
+extern void caml_startup(char ** argv);
+
 static TEE_Result libasmrun_test(uint32_t __unused param_types,
 					TEE_Param __unused params[4])
 {
-  int avail=test_build();
-  printf("avail is %d\n", avail);
+
+	char** argv = {""};
+	printf ("[ocaml_test] enter\n");
+	caml_startup(argv);
+	printf ("[ocaml_test] success\n");
 
 	return TEE_SUCCESS;
 
@@ -204,7 +207,7 @@ static TEE_Result inc_value(uint32_t param_types,
 
 static TEE_Result empty_test(uint32_t __unused param_types,
 					TEE_Param __unused params[4])
-					
+
 {
 
 		return TEE_SUCCESS;
@@ -212,12 +215,12 @@ static TEE_Result empty_test(uint32_t __unused param_types,
 
 static TEE_Result pta_test(uint32_t __unused param_types,
 					TEE_Param __unused params[4])
-					
+
 {
 
 	TEE_Result res;
 	uint32_t err_origin;
-	
+
 //printf("after opening pta session\n");
 	res = TEE_InvokeTACommand(snape_sess, 0, OCALL_FILE, param_types, params, &err_origin);
 	//printf("after pta test $d\n",err_origin);
@@ -261,11 +264,11 @@ TEE_Result TA_InvokeCommandEntryPoint(void __maybe_unused *sess_ctx,
 	(void)&sess_ctx; /* Unused parameter */
 
 	switch (cmd_id) {
-/*		
+/*
 	case TA_BMFS_TEST:
-		return bmfs_test_call(param_types, params);	
+		return bmfs_test_call(param_types, params);
 	case TA_OPEN_FILE_TEST:
-		return bmfs_test_open_call(param_types, params);	
+		return bmfs_test_open_call(param_types, params);
 	case TA_WRITE_FILE_TEST:
 		return bmfs_test_write_call(param_types, params);
 	case TA_READ_FILE_TEST:
@@ -277,9 +280,9 @@ TEE_Result TA_InvokeCommandEntryPoint(void __maybe_unused *sess_ctx,
 */
 
 	case TA_LIBASMRUN_TEST:
-		return libasmrun_test(param_types, params);		
+		return libasmrun_test(param_types, params);
 	case TA_LIBM_TEST:
-		return libm_test_call(param_types, params);	
+		return libm_test_call(param_types, params);
 	case ECALL_INC_VAL:
 		return inc_value(param_types, params);
 	case TA_EMPTY_TEST:

@@ -35,8 +35,7 @@ int hello_ecnalve_test(void)
 		errx(1, "[TEEC_InitializeContext] failed: 0x%x", res);
 
 	// open a session to HELLO_ENCLAVE //
-	res = TEEC_OpenSession(&ctx, &sess, &uuid,
-			       TEEC_LOGIN_PUBLIC, NULL, NULL, &err_origin);
+	res = TEEC_OpenSession(&ctx, &sess, &uuid, TEEC_LOGIN_PUBLIC, NULL, NULL, &err_origin);
 	if (res != TEEC_SUCCESS)
 		errx(1, "TEEC_Opensession failed with code 0x%x origin 0x%x",
 			res, err_origin);
@@ -124,8 +123,8 @@ static void file_ocalls_test(const char *name)
 
 	res = TEEC_InvokeCommand(&sess, O_WRITE , &op,&err_origin);
 
-// SEEK_SET 
-	lseek(fd, 0, SEEK_SET); 
+// SEEK_SET
+	lseek(fd, 0, SEEK_SET);
 
 // invoke O_READ call inside enclave
 
@@ -180,10 +179,10 @@ int main(int argc, char *argv[])
 // check enclave rpc to access file operations in NW -- seperatly
 	//int fd=ecall_open_bench("enclave.txt");
 	//	ecall_write_bench( fd, buf,len);
-	//	lseek(fd, 0, SEEK_SET); 
+	//	lseek(fd, 0, SEEK_SET);
 	//	ecall_read_bench(fd,buf_temp, len);
 	//	printf("read_buf finally is: %s\n", buf_temp);
 
-  
+
 	return 0;
 }

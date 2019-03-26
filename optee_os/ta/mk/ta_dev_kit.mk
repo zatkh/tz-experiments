@@ -52,23 +52,23 @@ cppflags$(sm) += -DTRACE_LEVEL=$(CFG_TEE_TA_LOG_LEVEL)
 cppflags$(sm) += -I. -I$(ta-dev-kit-dir)/include
 
 libdirs += $(ta-dev-kit-dir)/lib
-libnames += utils utee mpa 
+libnames += utils utee mpa
 libdeps += $(ta-dev-kit-dir)/lib/libutils.a
 libdeps += $(ta-dev-kit-dir)/lib/libmpa.a
 libdeps += $(ta-dev-kit-dir)/lib/libutee.a
 
 ifeq ($(CFG_ARM64_ta_arm64),y)
-libnames += openlibm zlib png nolibc asmrun #camlrun # bmfs picotcp#ccv#, merged to utils and utee
+libnames += openlibm zlib png nolibc camlrun_byte#asmrun #camlrun # bmfs picotcp#ccv#, merged to utils and utee
 libdeps += $(ta-dev-kit-dir)/lib/libopenlibm.a
 libdeps += $(ta-dev-kit-dir)/lib/libzlib.a
 libdeps += $(ta-dev-kit-dir)/lib/libpng.a
 libdeps += $(ta-dev-kit-dir)/lib/libnolibc.a
-libdeps += $(ta-dev-kit-dir)/lib/libasmrun.a
-#libdeps += $(ta-dev-kit-dir)/lib/libcamlrun.a
+#libdeps += $(ta-dev-kit-dir)/lib/libasmrun.a
+libdeps += $(ta-dev-kit-dir)/lib/libcamlrun_byte.a
 #libdeps += $(ta-dev-kit-dir)/lib/libbmfs.a
 #libdeps += $(ta-dev-kit-dir)/lib/libpicotcp.a
 #libdeps += $(ta-dev-kit-dir)/lib/libccv.a
-endif 
+endif
 
 ifeq ($(CFG_TA_MBEDTLS),y)
 libnames += mbedtls

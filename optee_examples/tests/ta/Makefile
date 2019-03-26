@@ -6,8 +6,6 @@ BINARY=7089f704-47cf-410c-bcf5-fff3bb1c65fd
 
 -include $(TA_DEV_KIT_DIR)/mk/ta_dev_kit.mk
 
-ldargs-$(binary).elf += ./caml_obj
-
 ifeq ($(wildcard $(TA_DEV_KIT_DIR)/mk/ta_dev_kit.mk), )
 clean:
 	@echo 'Note: $$(TA_DEV_KIT_DIR)/mk/ta_dev_kit.mk not found, cannot clean TA'

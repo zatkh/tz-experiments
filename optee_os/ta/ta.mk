@@ -70,13 +70,13 @@ libname = nolibc
 libdir = lib/libnolibc
 include mk/lib.mk
 
-libname = asmrun
-libdir = lib/libasmrun
-include mk/lib.mk
-
-#libname = camlrun
-#libdir = lib/libcamlrun
+#libname = asmrun
+#libdir = lib/libasmrun
 #include mk/lib.mk
+
+libname = camlrun_byte
+libdir = lib/libcamlrun_byte
+include mk/lib.mk
 
 
 #libname = bmfs

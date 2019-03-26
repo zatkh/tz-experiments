@@ -1,6 +1,6 @@
 global-incdirs-y += include
 
-srcs-y += main_ta.c
+srcs-y += main_ta.c ocaml.c
 #srcs-y += test_bmfs.c
 srcs-y += test_libm.c
 #srcs-y += storage.c

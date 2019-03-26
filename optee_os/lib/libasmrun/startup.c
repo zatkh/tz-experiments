@@ -46,7 +46,7 @@
 
 
 int test_build(void){
-return 200;
+  return 200;
 }
 
 extern int caml_parser_trace;

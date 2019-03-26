@@ -20,6 +20,7 @@ srcs-y += strdup.c
 srcs-y += strndup.c
 srcs-y += tolower.c
 srcs-y += signal.c
+srcs-y += vfprintf.c
 
 srcs-y += time.c
 srcs-y += timespec_get.c
