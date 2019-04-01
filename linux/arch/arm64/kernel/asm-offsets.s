@@ -8,12 +8,12 @@
 // -I include -I ./arch/arm64/include/uapi
 // -I arch/arm64/include/generated/uapi -I ./include/uapi
 // -I include/generated/uapi -imultiarch aarch64-linux-gnu
-// -iprefix /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
-// -isysroot /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
+// -iprefix /home/zt233/Documents/git/lortex/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/
+// -isysroot /home/zt233/Documents/git/lortex/tz-experiments/toolchains/aarch64/bin/../aarch64-linux-gnu/libc
 // -D __KERNEL__ -D CONFIG_AS_LSE=1 -D CC_HAVE_ASM_GOTO -D KBUILD_STR(s)=#s
 // -D KBUILD_BASENAME=KBUILD_STR(asm_offsets)
 // -D KBUILD_MODNAME=KBUILD_STR(asm_offsets)
-// -isystem /home/zt233/Documents/git/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
+// -isystem /home/zt233/Documents/git/lortex/tz-experiments/toolchains/aarch64/bin/../lib/gcc/aarch64-linux-gnu/6.2.1/include
 // -include ./include/linux/kconfig.h arch/arm64/kernel/asm-offsets.c
 // -mlittle-endian -mgeneral-regs-only -mpc-relative-literal-loads
 // -march=armv8-a -mabi=lp64 -auxbase-strip arch/arm64/kernel/asm-offsets.s
@@ -555,7 +555,7 @@ main:
 	.file 4 "./include/uapi/asm-generic/posix_types.h"
 	.file 5 "include/linux/types.h"
 	.file 6 "include/linux/capability.h"
-	.file 7 "/home/zt233/Documents/git/tz-experiments/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stdarg.h"
+	.file 7 "/home/zt233/Documents/git/lortex/tz-experiments/toolchains/aarch64/lib/gcc/aarch64-linux-gnu/6.2.1/include/stdarg.h"
 	.file 8 "<built-in>"
 	.file 9 "include/linux/init.h"
 	.file 10 "./arch/arm64/include/asm/cachetype.h"
@@ -19373,8 +19373,6 @@ main:
 	.string	"console_printk"
 .LASF1573:
 	.string	"__stop___jump_table"
-.LASF1033:
-	.string	"cputime_atomic"
 .LASF494:
 	.string	"vm_page_prot"
 .LASF1768:
@@ -20861,6 +20859,8 @@ main:
 	.string	"prove_locking"
 .LASF797:
 	.string	"clock_base"
+.LASF1941:
+	.string	"/home/zt233/Documents/git/lortex/tz-experiments/linux"
 .LASF1422:
 	.string	"dev_pm_qos"
 .LASF422:
@@ -22173,8 +22173,8 @@ main:
 	.string	"expires_next"
 .LASF1683:
 	.string	"dirty_bitmap"
-.LASF1941:
-	.string	"/home/zt233/Documents/git/tz-experiments/linux"
+.LASF1033:
+	.string	"cputime_atomic"
 .LASF1892:
 	.string	"mmio_exit_user"
 .LASF1694:

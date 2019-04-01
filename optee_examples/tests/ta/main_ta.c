@@ -8,7 +8,6 @@
 //#include "test_bmfs.h"
 #include "test_libm.h"
 //#include "caml/backtrace_prim.h"
-#include "build_test.h"
 
 
 TEE_TASessionHandle snape_sess;
@@ -167,6 +166,8 @@ static TEE_Result libasmrun_test(uint32_t __unused param_types,
 
 
 }
+
+
 static TEE_Result libm_test_call(uint32_t __unused param_types,
 					TEE_Param __unused params[4])
 

@@ -440,6 +440,7 @@ CAMLexport value caml_startup_code_exn(
   char_os * cds_file;
   char_os * exe_name;
 
+printf("[caml_startup_code_exn]\n");
   /* Determine options */
 #ifdef DEBUG
   caml_verb_gc = -1;
@@ -453,6 +454,8 @@ CAMLexport value caml_startup_code_exn(
   caml_gc_message (-1, "### OCaml runtime: debug mode ###\n");
   if (!caml_startup_aux(pooling))
     return Val_unit;
+
+printf("[caml_startup_code_exn] after caml_startup_aux\n");
 
   caml_init_ieee_floats();
   caml_gc_message (-1, "### OCaml runtime: debug mode ###\n");

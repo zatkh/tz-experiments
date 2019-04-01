@@ -11,13 +11,13 @@
 # CFG_TEE_CLIENT_LOG_LEVEL
 #   Client (User Non Secure) log level
 #   Supported values: 0 (no traces) to 4 (all traces)
-CFG_TEE_CLIENT_LOG_LEVEL?=1
+CFG_TEE_CLIENT_LOG_LEVEL?=4
 export CFG_TEE_CLIENT_LOG_LEVEL
 
 # CFG_TEE_SUPP_LOG_LEVEL
 #   Supplicant log level
 #   Supported values: 0 (no traces) to 4 (all traces)
-CFG_TEE_SUPP_LOG_LEVEL?=1
+CFG_TEE_SUPP_LOG_LEVEL?=4
 export CFG_TEE_SUPP_LOG_LEVEL
 
 # CFG_TEE_CLIENT_LOG_FILE

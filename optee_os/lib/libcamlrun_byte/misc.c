@@ -38,6 +38,9 @@ int caml_failed_assert (char * expr, char * file, int line)
   fprintf (stderr, "file %s; line %d ### Assertion failed: %s\n",
            file, line, expr);
   fflush (stderr);
+  
+  printf("[caml_failed_assert] line %d ### Assertion failed: %s \n",file, line, expr );
+
   abort();
 }
 
@@ -62,17 +65,24 @@ void caml_gc_message (int level, char *msg, ...)
     va_end(ap);
     fflush (stderr);
   }
+
+    printf("[caml_gc_message] %s \n",msg);
+
 }
 
 CAMLexport void caml_fatal_error (char *msg)
 {
   fprintf (stderr, "%s", msg);
+  printf("[caml_fatal_error] %s \n",msg);
+
   exit(2);
 }
 
 CAMLexport void caml_fatal_error_arg (char *fmt, char *arg)
 {
   fprintf (stderr, fmt, arg);
+  printf("[caml_fatal_error_arg]\n");
+
   exit(2);
 }
 
@@ -81,6 +91,7 @@ CAMLexport void caml_fatal_error_arg2 (char *fmt1, char *arg1,
 {
   fprintf (stderr, fmt1, arg1);
   fprintf (stderr, fmt2, arg2);
+  printf("[caml_fatal_error_arg2]\n");
   exit(2);
 }
 
