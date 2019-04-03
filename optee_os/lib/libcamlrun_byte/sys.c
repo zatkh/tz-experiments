@@ -14,7 +14,7 @@
 /**************************************************************************/
 
 #define CAML_INTERNALS
-
+#define HAS_TIMES
 /* Basic system calls */
 
 #include <errno.h>
@@ -61,6 +61,7 @@
 #include "caml/startup_aux.h"
 
 // TODO
+#ifndef HAS_TIMES
 typedef double clock_t;
 #define CLOCKS_PER_SEC 1000000
 static inline clock_t clock( void )
@@ -68,7 +69,7 @@ static inline clock_t clock( void )
     /* TODO: Placeholder implementation (valid but useless) */
     return -1;
 }
-
+#endif
 
 static char * error_message(void)
 {

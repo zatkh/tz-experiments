@@ -36,13 +36,19 @@ struct pgt {
 /*
  * Reserve 2 page tables per thread, but at least 4 page tables in total
  */
-#if CFG_NUM_THREADS < 2
-#define PGT_CACHE_SIZE	4
+#ifdef CFG_WITH_PAGER
+ #if CFG_NUM_THREADS < 2
+ #define PGT_CACHE_SIZE	4
+ #else
+ #define PGT_CACHE_SIZE	ROUNDUP(CFG_NUM_THREADS * 6, PGT_NUM_PGT_PER_PAGE)
+ #endif
 #else
-#define PGT_CACHE_SIZE	ROUNDUP(CFG_NUM_THREADS * 2, PGT_NUM_PGT_PER_PAGE)
-#endif
-
-SLIST_HEAD(pgt_cache, pgt);
+#define PGT_CACHE_SIZE	32
+//#define PGT_CACHE_SIZE ROUNDUP(CFG_NUM_THREADS * 8, PGT_NUM_PGT_PER_PAGE)
+#endif /*CFG_WITH_PAGER*/
+ 
+ SLIST_HEAD(pgt_cache, pgt);
+ 
 
 static inline bool pgt_check_avail(size_t num_tbls)
 {

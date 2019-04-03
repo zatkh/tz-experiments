@@ -1,0 +1,1382 @@
+D/TC:0 add_phys_mem:521 TEE_SHMEM_START type NSEC_SHM 0x42000000 size 0x00200000
+D/TC:0 add_phys_mem:521 TA_RAM_START type TA_RAM 0x0e200000 size 0x00c00000
+D/TC:0 add_phys_mem:521 VCORE_UNPG_RW_PA type TEE_RAM_RW 0x0e14a000 size 0x000b6000
+D/TC:0 add_phys_mem:521 VCORE_UNPG_RX_PA type TEE_RAM_RX 0x0e100000 size 0x0004a000
+D/TC:0 add_phys_mem:521 CONSOLE_UART_BASE type IO_SEC 0x09000000 size 0x00200000
+D/TC:0 verify_special_mem_areas:459 No NSEC DDR memory area defined
+D/TC:0 add_va_space:560 type RES_VASPACE size 0x00a00000
+D/TC:0 add_va_space:560 type SHM_VASPACE size 0x02000000
+D/TC:0 dump_mmap_table:693 type TEE_RAM_RX   va 0x0e100000..0x0e149fff pa 0x0e100000..0x0e149fff size 0x0004a000 (smallpg)
+D/TC:0 dump_mmap_table:693 type TEE_RAM_RW   va 0x0e14a000..0x0e1fffff pa 0x0e14a000..0x0e1fffff size 0x000b6000 (smallpg)
+D/TC:0 dump_mmap_table:693 type NSEC_SHM     va 0x0e200000..0x0e3fffff pa 0x42000000..0x421fffff size 0x00200000 (pgdir)
+D/TC:0 dump_mmap_table:693 type RES_VASPACE  va 0x0e400000..0x0edfffff pa 0x00000000..0x009fffff size 0x00a00000 (pgdir)
+D/TC:0 dump_mmap_table:693 type SHM_VASPACE  va 0x0ee00000..0x10dfffff pa 0x00000000..0x01ffffff size 0x02000000 (pgdir)
+D/TC:0 dump_mmap_table:693 type TA_RAM       va 0x10e00000..0x119fffff pa 0x0e200000..0x0edfffff size 0x00c00000 (pgdir)
+D/TC:0 dump_mmap_table:693 type IO_SEC       va 0x11a00000..0x11bfffff pa 0x09000000..0x091fffff size 0x00200000 (pgdir)
+D/TC:0 core_mmu_entry_to_finer_grained:631 xlat tables used 1 / 5
+D/TC:0 core_mmu_entry_to_finer_grained:631 xlat tables used 2 / 5
+I/TC:  
+D/TC:0 init_canaries:162 #Stack canaries for stack_tmp[0] with top at 0xe1948b8
+D/TC:0 init_canaries:162 watch *0xe1948bc
+D/TC:0 init_canaries:162 #Stack canaries for stack_tmp[1] with top at 0xe1950f8
+D/TC:0 init_canaries:162 watch *0xe1950fc
+D/TC:0 init_canaries:163 #Stack canaries for stack_abt[0] with top at 0xe195d38
+D/TC:0 init_canaries:163 watch *0xe195d3c
+D/TC:0 init_canaries:163 #Stack canaries for stack_abt[1] with top at 0xe196978
+D/TC:0 init_canaries:163 watch *0xe19697c
+D/TC:0 init_canaries:165 #Stack canaries for stack_thread[0] with top at 0xe1989b8
+D/TC:0 init_canaries:165 watch *0xe1989bc
+D/TC:0 init_canaries:165 #Stack canaries for stack_thread[1] with top at 0xe19a9f8
+D/TC:0 init_canaries:165 watch *0xe19a9fc
+D/TC:0 select_vector:955 SMCCC_ARCH_WORKAROUND_1 (0x80008000) available
+D/TC:0 select_vector:956 SMC Workaround for CVE-2017-5715 used
+I/TC:  OP-TEE version: 073f0cbc9-dev #1 Wed  3 Apr 14:23:16 UTC 2019 aarch64
+D/TC:0 tee_ta_register_ta_store:521 Registering TA store: 'REE' (priority 10)
+D/TC:0 tee_ta_register_ta_store:521 Registering TA store: 'Secure Storage TA' (priority 9)
+D/TC:0 mobj_mapped_shm_init:559 Shared memory address range: ee00000, 10e00000
+F/TC:0 plat_prng_add_jitter_entropy:75 plat_prng_add_jitter_entropy: 0x6E2F
+I/TC:  Initialized
+D/TC:0 init_primary_helper:917 Primary CPU switching to normal world boot
+I/TC:  Dynamic shared memory is enabled
+I/TC:  [tee_test_smc]***********
+D/TC:0 tee_ta_init_pseudo_ta_session:274 Lookup pseudo TA 7089f704-47cf-410c-bcf5-fff3bb1c65fd
+D/TC:0 load_elf:829 Lookup user TA ELF 7089f704-47cf-410c-bcf5-fff3bb1c65fd (Secure Storage TA)
+F/TC:0 plat_prng_add_jitter_entropy:75 plat_prng_add_jitter_entropy: 0xF0
+F/TC:0 plat_prng_add_jitter_entropy:75 plat_prng_add_jitter_entropy: 0x74
+F/TC:0 plat_prng_add_jitter_entropy:75 plat_prng_add_jitter_entropy: 0xDA
+F/TC:0 plat_prng_add_jitter_entropy:75 plat_prng_add_jitter_entropy: 0xB4
+D/TC:0 load_elf:829 Lookup user TA ELF 7089f704-47cf-410c-bcf5-fff3bb1c65fd (REE)
+F/TC:0 plat_prng_add_jitter_entropy:75 plat_prng_add_jitter_entropy: 0x90
+D/TC:0 load_elf_from_store:797 ELF load address 0x4000d000
+D/TC:0 tee_ta_init_user_ta_session:1006 Processing relocations in 7089f704-47cf-410c-bcf5-fff3bb1c65fd
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+D/TA:  TA_CreateEntryPoint:22 ya has been called
+F/TC:0 trace_syscall:128 syscall #5 (syscall_open_ta_session)
+D/TC:0 tee_ta_init_pseudo_ta_session:274 Lookup pseudo TA 4974b40c-fcb8-4f1e-9e0f-87c1b76d369b
+D/TC:0 tee_ta_init_pseudo_ta_session:286 Open test_enclave.pta
+D/TC:0 tee_ta_init_pseudo_ta_session:300 test_enclave.pta : 4974b40c-fcb8-4f1e-9e0f-87c1b76d369b
+D/TC:0 create_ta:362 create entry point for pseudo TA "test_enclave.pta"
+D/TC:0 open_session:347 open entry point for pseudo ta "test_enclave.pta"
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+D/TA:  TA_OpenSessionEntryPoint:58 has been called
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Hello World!
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[ocaml_test] enterF/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_startup_code_exn]
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_startup_code_exn] after caml_startup_aux
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 4096
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 33024
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16672
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16384
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial minor heap size: 58k words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294k words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  44��
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  k words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial minor heap size: %zuk words
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial major heap size: 58k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  164��
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial major heap size: %lluk bytes
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial space overhead: 58%
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967295%
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  804��
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  %
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial space overhead: %llu%%
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial max overhead: 58%
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967295%
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  5004��
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  %
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial max overhead: %llu%%
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial heap increment: 58%
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967295%
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  104��
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  %
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial heap increment: %llu%%
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial allocation policy: 58
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  0q@
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4��
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial allocation policy: %llu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial smoothing window: 58
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -2
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  1L
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial smoothing window: %d
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 2048
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Initial stack limit: 58k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  32
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Initial stack limit: %lluk bytes
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 40
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 64
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 8
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 40
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 3072
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 3072
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 26
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 12
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 12
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 32
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 30
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 11
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 41
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 12
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 12
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 29
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 29
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 33
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 10
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 29
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 33
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 32
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 32
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 32
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 26
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 33
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 26
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 36
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 13
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 26
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 29
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 36
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 26
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 31
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 42
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 29
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 26
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 26
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 29
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 27
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 28
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 25
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 20
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 22
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 21
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 24
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 31
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 23
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 15
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 17
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 19
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 14
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 3680
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: debug mode ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### rdy ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### rdy ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 6144
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Growing stack to 58k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4kp�
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Growing stack to %lluk bytes
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 4096
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 52
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 65616
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 18432
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 65616
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 65616
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 45
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 16
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 51232
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Growing heap to 58k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  652��
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  k bytes
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Growing heap to %lluk bytes
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Growing page table to 58 entries
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294 entries
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  512
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:   entries
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Growing page table to %llu entries
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_stat_block] before malloc with size caml_stat_block: 8192
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  <
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] < 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  >
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] > 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ordered work = 58 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  1
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:   words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ordered work = %lld words
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  allocated_words = 58
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  5980
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] allocated_words = %llu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  extra_heap_resources = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  3000
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] extra_heap_resources = %lluu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  raw work-to-do = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  300000
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] raw work-to-do = %lldu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  filtered work-to-do = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  300000
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] filtered work-to-do = %lldu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Starting new major GC cycle
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Starting new major GC cycle
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ### OCaml runtime: heap check ###
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ### OCaml runtime: heap check ###
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Finished major GC cycle
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Finished major GC cycle
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  work-done = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  0�@
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] work-done = %lldu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  ordered work = 58 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  1
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:   words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ordered work = %lld words
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  allocated_words = 58
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  0�@
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] allocated_words = %llu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  extra_heap_resources = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  0�@
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] extra_heap_resources = %lluu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  raw work-to-do = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  0�@
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] raw work-to-do = %lldu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  filtered work-to-do = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  300000
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] filtered work-to-do = %lldu
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  computed work = 58 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  3506
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:   words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] computed work = %lld words
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Marking 58 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294 words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  3506
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:   words
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Marking %lld words
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  Subphase = 58
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -2
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  10
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] Subphase = %d
+ 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  !
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] ! 
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  work-done = 58u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  4294967294u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  -+   0X0x
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  300000
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+I/TA:  u
+F/TC:0 trace_syscall:128 syscall #1 (syscall_log)
+[caml_gc_message] work-done = %lldu
+ 
+D/TC:0 abort_handler:651 [abort] abort in User mode (TA will panic)
+E/TC:0 
+E/TC:0 User TA data-abort at address 0x675f6c6d61635b00 (translation fault)
+E/TC:0  esr 0x92000004  ttbr0 0x200000e194000   ttbr1 0x00000000   cidr 0x0
+E/TC:0  cpu #0          cpsr 0x20000100
+E/TC:0  x0  675f6c6d61635b00 x1  675f6c6d61635b00
+E/TC:0  x2  0000000040a7b180 x3  000000004004880d
+E/TC:0  x4  000000004004880d x5  00000000ffffffee
+E/TC:0  x6  0000000000000012 x7  0000000000000020
+E/TC:0  x8  0000000000000001 x9  0000000068e9bcac
+E/TC:0  x10 0000000000000000 x11 00000000c87ef8e4
+E/TC:0  x12 0000000000000000 x13 0000000000000000
+E/TC:0  x14 0000000000000000 x15 000000006f170c81
+E/TC:0  x16 000000000e118644 x17 0000000000000000
+E/TC:0  x18 0000000000000000 x19 675f6c6d61635b00
+E/TC:0  x20 0000000000000de1 x21 000000004000c490
+E/TC:0  x22 0000000040048153 x23 000000004001c320
+E/TC:0  x24 000000004004f000 x25 00000000400431ec
+E/TC:0  x26 0000000040a5b4c0 x27 0000000040059db0
+E/TC:0  x28 0000000040059da8 x29 000000004000c390
+E/TC:0  x30 000000004001c334 elr 000000004003949c
+E/TC:0  sp_el0 000000004000c390
+E/TC:0 Status of TA 7089f704-47cf-410c-bcf5-fff3bb1c65fd (0xe16bcf0) (active)
+E/TC:0  arch: aarch64  load address: 0x4000d000 ctx-idr: 2
+E/TC:0  stack: 0x40004000 34816
+E/TC:0  region 0: va 0x40000000 pa 0xe100000 size 0x2000 flags ---R-X 
+E/TC:0  region 1: va 0x40002000 pa 0xe16c000 size 0x1000 flags ---RW- 
+E/TC:0  region 2: va 0x40004000 pa 0xec7d000 size 0x9000 flags rw-RW- 
+E/TC:0  region 3: va 0x4000d000 pa 0xe200000 size 0x45000 flags r-x--- [0]
+E/TC:0  region 4: va 0x40052000 pa 0xe245000 size 0xa38000 flags rw---- [0]
+E/TC:0  [0] 7089f704-47cf-410c-bcf5-fff3bb1c65fd @ 0x4000d000
+E/TC:0 Call stack:
+E/TC:0  0x000000004003949c
+E/TC:0  0x000000004001c438
+E/TC:0  0x000000004000e96c
+E/TC:0  0x000000004002ed00
+E/TC:0  0x0000000040019ef8
+E/TC:0  0x0000000040018560
+E/TC:0  0x000000004003662c
+E/TC:0  0x000000000e10318c
+D/TC:0 user_ta_enter:313 tee_user_ta_enter: TA panicked with code 0xdeadbeef
+D/TC:0 tee_ta_invoke_command:625 Error: ffff3024 of 3
+D/TC:0 tee_ta_close_session:380 tee_ta_close_session(0xe16bd50)
+D/TC:0 tee_ta_close_session:399 Destroy session
+D/TC:0 tee_ta_close_session:425 Destroy TA ctx
+D/TC:0 tee_ta_close_session:380 tee_ta_close_session(0xe16ade0)
+D/TC:0 tee_ta_close_session:399 Destroy session
+D/TC:0 close_session:353 close entry point for pseudo ta "test_enclave.pta"
+D/TC:0 destroy_ta:368 destroy entry point for pseudo ta "test_enclave.pta"

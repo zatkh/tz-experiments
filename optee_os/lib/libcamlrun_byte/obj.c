@@ -18,6 +18,8 @@
 /* Operations on objects */
 
 #include <string.h>
+#include <stdio.h>
+
 #include "caml/alloc.h"
 #include "caml/fail.h"
 #include "caml/gc.h"
@@ -347,6 +349,8 @@ CAMLprim value caml_obj_reachable_words(value v)
           hd = Hd_val(v2);
           if (Color_hd(hd) != Caml_blue) {
             if (write_pos == ENTRIES_PER_QUEUE_CHUNK) {
+              printf("[caml_obj_reachable_words] before malloc with size: %d\n",sizeof(struct queue_chunk));  
+
               struct queue_chunk *new_chunk =
                 malloc(sizeof(struct queue_chunk));
               if (new_chunk == NULL) {

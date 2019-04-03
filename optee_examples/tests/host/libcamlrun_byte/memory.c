@@ -764,6 +764,7 @@ static struct pool_block* get_pool_block(caml_stat_block b)
 CAMLexport void caml_stat_create_pool(void)
 {
   if (pool == NULL) {
+    printf("[caml_stat_create_pool] before malloc with size: %d\n",SIZEOF_POOL_BLOCK);  
     pool = malloc(SIZEOF_POOL_BLOCK);
     if (pool == NULL)
       caml_fatal_error("Fatal error: out of memory.\n");
@@ -831,10 +832,12 @@ CAMLexport caml_stat_block caml_stat_alloc_noexc(asize_t sz)
 {
   /* Backward compatibility mode */
   if (pool == NULL) {
+    printf("[caml_stat_block] before malloc with size caml_stat_block: %d\n",sz);  
     caml_stat_block res = malloc(sz);
     return res;
   }
     else {
+    printf("[caml_stat_block] before malloc with size: %d\n",sz + SIZEOF_POOL_BLOCK);  
     struct pool_block *pb = malloc(sz + SIZEOF_POOL_BLOCK);
     if (pb == NULL) return NULL;
 #ifdef DEBUG

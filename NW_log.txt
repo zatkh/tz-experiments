@@ -1,0 +1,76 @@
+Welcome to Buildroot, type root to login
+buildroot login: root
+# tests
+[ocaml_test] enter
+[caml_startup_code_exn]
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_startup_code_exn] after caml_startup_aux
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 16
+[caml_stat_block] before malloc with size caml_stat_block: 16
+[caml_stat_block] before malloc with size caml_stat_block: 16
+[caml_stat_block] before malloc with size caml_stat_block: 16
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 4096
+[caml_stat_block] before malloc with size caml_stat_block: 33024
+[caml_stat_block] before malloc with size caml_stat_block: 16672
+[caml_stat_block] before malloc with size caml_stat_block: 16384
+[caml_gc_message] Initial minor heap size: %zuk words
+ 
+[caml_gc_message] Initial major heap size: %lluk bytes
+ 
+[caml_gc_message] Initial space overhead: %llu%%
+ 
+[caml_gc_message] Initial max overhead: %llu%%
+ 
+[caml_gc_message] Initial heap increment: %llu%%
+ 
+[caml_gc_message] Initial allocation policy: %llu
+ 
+[caml_gc_message] Initial smoothing window: %d
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 2048
+[caml_gc_message] Initial stack limit: %lluk bytes
+ 
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 16
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 40
+[caml_stat_block] before malloc with size caml_stat_block: 64
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 8
+[caml_stat_block] before malloc with size caml_stat_block: 40
+[caml_stat_block] before malloc with size caml_stat_block: 596
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 3072
+[caml_stat_block] before malloc with size caml_stat_block: 3680
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_gc_message] ### OCaml runtime: debug mode ###
+ 
+[caml_gc_message] ### rdy ###
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 6144
+[caml_gc_message] Growing stack to %lluk bytes
+ 
+[caml_stat_block] before malloc with size caml_stat_block: 4096
+[caml_stat_block] before malloc with size caml_stat_block: 52
+[caml_stat_block] before malloc with size caml_stat_block: 16
+[caml_stat_block] before malloc with size caml_stat_block: 65624
+[caml_stat_block] before malloc with size caml_stat_block: 18432
+[caml_stat_block] before malloc with size caml_stat_block: 65624
+[caml_stat_block] before malloc with size caml_stat_block: 65624
+[caml_stat_block] before malloc with size caml_stat_block: 45
+[caml_stat_block] before malloc with size caml_stat_block: 16
+Bonjour
+[ocaml_test] success
+

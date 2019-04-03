@@ -18,6 +18,8 @@
 #include <stddef.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdio.h>
+
 #include "caml/alloc.h"
 #include "caml/bigarray.h"
 #include "caml/custom.h"
@@ -111,6 +113,7 @@ caml_ba_alloc(int flags, int num_dims, void * data, intnat * dim)
                            caml_ba_element_size[flags & CAML_BA_KIND_MASK],
                            &size))
       caml_raise_out_of_memory();
+    printf("[caml_ba_alloc] before malloc with size: %d\n",size);  
     data = malloc(size);
     if (data == NULL && size != 0) caml_raise_out_of_memory();
     flags |= CAML_BA_MANAGED;
@@ -463,6 +466,7 @@ CAMLexport uintnat caml_ba_deserialize(void * dst)
                          &size))
     caml_deserialize_error("input_value: size overflow for bigarray");
   /* Allocate room for data */
+  printf("[caml_ba_deserialize] before malloc with size: %d\n",size);  
   b->data = malloc(size);
   if (b->data == NULL)
     caml_deserialize_error("input_value: out of memory for bigarray");
@@ -923,6 +927,7 @@ static void caml_ba_update_proxy(struct caml_ba_array * b1,
     ++ b1->proxy->refcount;
   } else {
     /* Otherwise, create proxy and attach it to both b1 and b2 */
+    printf("[caml_ba_update_proxy] before malloc with size: %d\n",sizeof(struct caml_ba_proxy));  
     proxy = malloc(sizeof(struct caml_ba_proxy));
     if (proxy == NULL) caml_raise_out_of_memory();
     proxy->refcount = 2;      /* original array + sub array */
