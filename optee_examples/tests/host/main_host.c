@@ -42,9 +42,9 @@ int hello_ecnalve_test(void)
 
 	// init arguments //
 	memset(&op, 0, sizeof(op));
-	op.paramTypes = TEEC_PARAM_TYPES(TEEC_VALUE_INOUT, TEEC_NONE,
+	op.paramTypes = TEEC_PARAM_TYPES(TEEC_NONE, TEEC_NONE,
 					 TEEC_NONE, TEEC_NONE);
-	op.params[0].value.a = 100;
+	//op.params[0].value.a = 100;
 
 	/*printf("Invoking ECALL_INC_VAL inside HELLO_ENCLAVE to increment %d\n", op.params[0].value.a);
 	res = TEEC_InvokeCommand(&sess, ECALL_INC_VAL, &op,
@@ -54,7 +54,7 @@ int hello_ecnalve_test(void)
 			res, err_origin);
 	printf("ECALL_INC_VAL value to %d\n", op.params[0].value.a);
 */
-	//memset(&op, 0, sizeof(op));
+	memset(&op, 0, sizeof(op));
 	res = TEEC_InvokeCommand(&sess, TA_LIBASMRUN_TEST, &op,
 				 &err_origin);
 	if (res != TEEC_SUCCESS)
@@ -169,8 +169,7 @@ int main(int argc, char *argv[])
 	char buf_temp[len];
 
 /****************************HELLO_ENCLAVE: test***********************/
-//	hello_ecnalve_test();
-
+	
 
 
 	//char** argv = {""};
@@ -178,6 +177,8 @@ int main(int argc, char *argv[])
 	caml_startup(argv);
 	printf ("[ocaml_test] success\n");
 
+
+	hello_ecnalve_test();
 
 
 /******************************TEST_ENCLAVE: file ocalls/rpcs test********************/
