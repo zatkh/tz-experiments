@@ -66,9 +66,9 @@ libname = png
 libdir = lib/libpng
 include mk/lib.mk
 
-libname = nolibc
-libdir = lib/libnolibc
-include mk/lib.mk
+#libname = nolibc
+#libdir = lib/libnolibc
+#include mk/lib.mk
 
 #libname = asmrun
 #libdir = lib/libasmrun

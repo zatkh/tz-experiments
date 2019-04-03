@@ -18,4 +18,5 @@ srcs-y += strstr.c
 srcs-y += strcpy.c
 srcs-y += strncpy.c
 srcs-y += strtol.c
+srcs-y += ctype.c
 srcs-y += strcasecmp.c

@@ -2,7 +2,7 @@
 #define _STDLIB_H
 
 #include <stddef.h>
-
+/*
 void abort(void) __attribute__((noreturn));
 void exit(int) __attribute__((noreturn));
 void *malloc(size_t);
@@ -14,5 +14,5 @@ char *secure_getenv(const char *);
 int system(const char *);
 double strtod(const char *, char **);
 long strtol(const char *, char **, int);
-
+*/
 #endif

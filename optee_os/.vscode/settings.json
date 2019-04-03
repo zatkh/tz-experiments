@@ -28,6 +28,8 @@
         "mobj.h": "c",
         "time_source.h": "c",
         "tee_time.h": "c",
-        "limits.h": "c"
+        "limits.h": "c",
+        "tee_ta_api.h": "c",
+        "malloc.h": "c"
     }
 }
