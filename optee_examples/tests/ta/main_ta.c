@@ -157,10 +157,11 @@ static TEE_Result libasmrun_test(uint32_t __unused param_types,
 					TEE_Param __unused params[4])
 {
 
-	char** argv = {""};
-	printf ("[ocaml_test] enter\n");
-	caml_startup(argv);
-	printf ("[ocaml_test] success\n");
+	const char *margv[] = { "./tests",
+                         NULL };
+	printf ("[ocaml_test] sw enter\n");
+	caml_startup(margv);
+	printf ("[ocaml_test] sw success\n");
 
 	return TEE_SUCCESS;
 

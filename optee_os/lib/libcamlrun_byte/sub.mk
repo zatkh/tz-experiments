@@ -8,6 +8,6 @@ srcs-y += interp.c misc.c stacks.c fix_code.c startup_aux.c startup.c \
 	dynlink.c spacetime.c afl.c bigarray.c main.c unix.c instrtrace.c
 
 
-cflags-lib-y =-fno-builtin -fno-builtin-printf -DCAML_NAME_SPACE -DDEBUG
+cflags-lib-y =-fno-builtin -fno-builtin-printf -DCAML_NAME_SPACE #-DDEBUG
 global-incdirs-y += .
 incdirs-y += .

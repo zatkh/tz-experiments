@@ -30,6 +30,7 @@
         "tee_time.h": "c",
         "limits.h": "c",
         "tee_ta_api.h": "c",
-        "malloc.h": "c"
+        "malloc.h": "c",
+        "unixsupport.h": "c"
     }
 }

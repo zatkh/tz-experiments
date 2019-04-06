@@ -440,7 +440,11 @@ CAMLexport value caml_startup_code_exn(
   char_os * cds_file;
   char_os * exe_name;
 
+#ifdef DEBUG
+
 printf("[caml_startup_code_exn]\n");
+
+#endif
   /* Determine options */
 #ifdef DEBUG
   caml_verb_gc = -1;

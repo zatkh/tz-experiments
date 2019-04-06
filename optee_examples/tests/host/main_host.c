@@ -169,13 +169,16 @@ int main(int argc, char *argv[])
 	char buf_temp[len];
 
 /****************************HELLO_ENCLAVE: test***********************/
-	
+	   for(int i=0;i<argc;i++)
+    printf("argv[i], %s", argv[i]);
+const char *myargv[] = { "./tests",
+                         NULL };
 
 
 	//char** argv = {""};
-	printf ("[ocaml_test] enter\n");
-	caml_startup(argv);
-	printf ("[ocaml_test] success\n");
+	printf ("[ocaml_test] nw enter\n");
+	caml_startup(myargv);
+	printf ("[ocaml_test] nw success\n");
 
 
 	hello_ecnalve_test();

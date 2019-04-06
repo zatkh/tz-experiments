@@ -17,7 +17,7 @@ OBJS+= libcamlrun_byte/interp.o libcamlrun_byte/misc.o libcamlrun_byte/stacks.o 
 	libcamlrun_byte/dynlink.o libcamlrun_byte/spacetime.o libcamlrun_byte/afl.o libcamlrun_byte/bigarray.o libcamlrun_byte/main.o libcamlrun_byte/unix.o libcamlrun_byte/instrtrace.o 
 
 CFLAGS += -Wall -Ilibcamlrun_byte -I../ta/include -I../net/include -I../tui/include -I../tcrypt/include -I../tfs/include -I$(TEEC_EXPORT)/include -I./include
-CFLAGS += -fno-builtin -fno-builtin-printf -DCAML_NAME_SPACE -DDEBUG -DHAS_TIMES
+CFLAGS += -fno-builtin -fno-builtin-printf -DCAML_NAME_SPACE -DHAS_TIMES #-DDEBUG 
 
 
 CFLAGS += -Wall -O2 -g -I./
